@@ -68,8 +68,8 @@ public class Sep23_Core {
 
 //- JVM
 //- Architectures
-//- Compiled vs Intepreted languages
-//- Primitve vs Wrapper types
+//- Compiled vs Interpreted languages
+//- Primitive vs Wrapper types
 //- Conditionals: if - else if - else
 //- printf
 

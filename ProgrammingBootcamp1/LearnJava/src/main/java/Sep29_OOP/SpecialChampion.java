@@ -4,8 +4,8 @@ package Sep29_OOP;
 
 //child class of parent class Champion
 public class SpecialChampion extends Champion {
-    public SpecialChampion(String name, String[] lanes) {
-        super(name, lanes);
+    public SpecialChampion(String name, String[] lanes, int attack) {
+        super(name, lanes, attack);
     }
 
 //    method overriding

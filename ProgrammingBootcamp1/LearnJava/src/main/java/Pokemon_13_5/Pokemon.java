@@ -1,8 +1,13 @@
 package Pokemon_13_5;
 
+import java.util.Objects;
+
 public abstract class Pokemon {
-    private String type;
+    private String type = "n/a";
     private int id = 0;
+    private boolean hasTrainer = false;
+
+    private String[] validTypes = {"psychic", "water", "fire", "electric"};
 
 //    optional
     public Pokemon() {}
@@ -10,7 +15,19 @@ public abstract class Pokemon {
 //    constructor overloading
 //    this constructor only exists in Base class
     public Pokemon(String type, int id) {
-        this.type = type;
+
+//        validate type before assignment
+
+//        if (!type.equals("psychic") || !...) -> too long
+        for (String validType : validTypes) {
+            if (type.equals(validType)) {
+                this.type = type;
+                break;
+            }
+        }
+
+
+//        this.type = type;
 //        this.id = id; -> cannot directly assign like this
 
 //        validate data before assignment
@@ -39,6 +56,45 @@ public abstract class Pokemon {
 //        System.out.printf("type: %s | id: %s");
         return String.format("%s %d", type, id);
 //        return -> "string"
-
     }
+
+    public boolean hasTrainer() {
+        return this.hasTrainer;
+    }
+
+    public boolean removeTrainer() {
+        if (this.hasTrainer) {
+            this.hasTrainer = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean setTrainer() {
+        if (!this.hasTrainer) {
+            this.hasTrainer = true;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+//    special method
+    public String toString() {
+        return "Pokemon{" +
+                "type='" + type + '\'' +
+                ", id=" + id +
+                ", hasTrainer=" + hasTrainer +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return id == pokemon.id && hasTrainer == pokemon.hasTrainer && Objects.equals(type, pokemon.type);
+    }
+
 }

@@ -17,6 +17,8 @@ public class LabProgram {
         // UNCOMMENT THE CODE BELOW ONCE YOU HAVE WRITTEN YOUR CODE TO TEST YOUR
         // IMPLEMENTATION
 
+//        Pokemon p = new Pokemon();
+
         System.out.println("Creating pokemons with valid values: fire, 2 and electric 1");
         BasicPokemon basicPokemon = new BasicPokemon("fire", 2);
         RarePokemon rarePokemon = new RarePokemon("electric", 1);
@@ -36,6 +38,8 @@ public class LabProgram {
         rarePokemon = new RarePokemon("electric", 2000);
         System.out.println(basicPokemon.getIdentification());
         System.out.println(rarePokemon.getIdentification());
+
+
 //
 //        // Should not have trainer
         System.out.println("\nCheck status of pokemons without trainers");
@@ -43,7 +47,7 @@ public class LabProgram {
         rarePokemon = new RarePokemon("electric", 1);
         System.out.println(basicPokemon.hasTrainer());
         System.out.println(rarePokemon.hasTrainer());
-//
+
 //        // Should return false as the pokemons have not yet been booked.
         System.out.println("\nCancel trainers should fail as pokemons do not have trainer yet");
         boolean regularCancelSuccessful = basicPokemon.removeTrainer();

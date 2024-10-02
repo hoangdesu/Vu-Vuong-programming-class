@@ -2,10 +2,13 @@ package Pokemon_13_5;
 
 import java.util.Objects;
 
+//abstract classes cannot be used to create objects
+//used to design other sub-classes
 public abstract class Pokemon {
     private String type = "n/a";
     private int id = 0;
     private boolean hasTrainer = false;
+    private String attack;
 
     private String[] validTypes = {"psychic", "water", "fire", "electric"};
 
@@ -20,8 +23,8 @@ public abstract class Pokemon {
 
 //        if (!type.equals("psychic") || !...) -> too long
         for (String validType : validTypes) {
-            if (type.equals(validType)) {
-                this.type = type;
+            if (type.toLowerCase().equals(validType)) {
+                this.type = type.toLowerCase();
                 break;
             }
         }
@@ -38,9 +41,7 @@ public abstract class Pokemon {
         if (id >= 1 && id <= 1000) {
 //            not gonna cover all the cases e.g. 84
             if (id < 73) {
-                if (id % 42 != 0) this.id = id;
-            } else {
-                if (id % 73 != 0) this.id = id;
+                if (id % 42 != 0 && id % 73 != 0) this.id = id;
             }
 //            else {
 //                this.id = 0;
@@ -54,7 +55,7 @@ public abstract class Pokemon {
 
     public String getIdentification() {
 //        System.out.printf("type: %s | id: %s");
-        return String.format("%s %d", type, id);
+        return String.format("%s%d", type, id);
 //        return -> "string"
     }
 

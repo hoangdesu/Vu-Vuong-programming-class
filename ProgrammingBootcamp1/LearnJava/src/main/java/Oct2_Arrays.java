@@ -41,7 +41,6 @@ public class Oct2_Arrays {
         System.out.println(games.indexOf("GTA 6"));
         System.out.println(games.indexOf("Ori and the blind forest"));
 
-
         ArrayList<String> games2 = new ArrayList<>(List.of("League of Legends", "Valorant", "Black Myth Wukong", "GTA 6"));
         System.out.println("equals(): " + games.equals(games2)); // deep equal using elements
         System.out.println("== " + (games == games2)); // memory address

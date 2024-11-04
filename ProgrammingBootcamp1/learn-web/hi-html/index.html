@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello HTML</title>
+</head>
+
+<body>
+    <!-- headings: h1 to h6 -->
+    <h1>hello html</h1>
+    <h2>day la h2</h2>
+    <h4>day la h4</h4>
+    <h6>h6 nè</h6>
+    
+    <!-- paragraph -->
+    <!-- block element -->
+    <!-- width co nhieu la no xai het -->
+    <p>html is the structure</p>
+    <p>for the whole app</p>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium ex repellendus magnam, qui modi nisi accusamus fugiat sunt repudiandae ullam saepe vero necessitatibus earum facere aliquid tempore rem enim omnis!</p>
+
+    <!-- span: inline element -->
+    <!-- chi lay dung so do dai no can -->
+    <p>CSS stands for <span style="color: red; font-weight: bold;">Cascading Style Sheet</span></p>
+
+    <!-- lists -->
+    <!-- ordered vs unordered list -->
+
+    <h2>Cars</h2>
+    <div>
+        <ul>
+            <li>McLaren</li>
+            <li>Lambo</li>
+            <li>Mercedes</li>
+        </ul>
+
+        <h3>Food</h3>
+        <ol>
+            <li>Com tam</li>
+            <li>Bun rieu</li>
+            <li>Pho bat dan</li>
+        </ol>
+    </div>
+
+    <!-- Table -->
+    <h3>Table</h3>
+    <table border="1">
+        <tr>
+            <td>Country</td>
+            <td>Capital</td>
+        </tr>
+        <tr>
+            <td>Vietnam</td>
+            <td>Hanoi</td>
+        </tr>
+        <tr>
+            <td>United State of America</td>
+            <td>Washington D.C</td>
+        </tr>
+    </table>
+
+    <!-- remote URL -->
+    <div>
+        <img src="https://kinsta.com/wp-content/uploads/2022/06/html-css-javascript-differences.png" alt="image for HTML CSS JS" width="500px">
+
+        <!-- local relative path -->
+        <img src="./images/web-technologies.png" alt="web technologies" height="200">
+    </div>
+    
+    <!-- absolute path: /Users/brian/CLOUD/Teaching/Vu Vuong - Programming/ProgrammingBootcamp1/learn-web/hi-html/images/web-technologies.png -->
+
+    <!-- break onto a new line -->
+    <br> 
+    
+    <!-- anchor tag: -->
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <div>
+            <a href="https://www.youtube.com/">Watch on Youtube</a>
+        </div>
+        <div>
+            <a href="https://www.youtube.com/" target="_blank">Open Youtube in new tab</a>
+        </div>
+    </div>
+
+    <!-- parent container: structure the page better -->
+
+    <button onclick="alert('wasssuppp!!')">Click me</button>
+    
+
+    
+    <!-- Form: allow users to enter input and capture to send data to server -->
+
+    <!-- by default, form uses GET method -->
+
+    <form action="/my-fake-server" method="POST">
+        <label for="">Username</label>
+        <input type="text" name="client-username">
+        <label for="">Password</label>
+        <input type="password" name="client-server">
+        <button>Login</button>
+    </form>
+
+    
+
+    <div style="margin-bottom: 500px;"></div>
+
+</body>
+</html>

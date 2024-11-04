@@ -33,31 +33,54 @@ public class PageIndex implements Handler {
         String html = "<html>";
 
         // Add some Header information
-        html = html + "<head>" + 
-               "<title>Homepage</title>";
+        html += "<head>" + 
+                "<title>Landing Page</title>";
+
+            // Add some Header information
+        html += "<head>" +
+        "<title>Landing Page</title>" +
+        "<style>" +
+        "body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }" +
+        ".topnav { background-color: #333; overflow: hidden; padding: 10px; }" +
+        ".topnav a { color: #f4f4f4; text-decoration: none; padding: 14px 20px; display: inline-block; }" +
+        ".topnav a:hover { background-color: #575757; }" +
+        ".header { text-align: center; padding: 20px; }" +
+        ".header img { vertical-align: middle; }" +
+        ".content { display: flex; flex-direction: column; align-items: center; padding: 20px; }" +
+        ".carousel { display: flex; justify-content: center; align-items: center; width: 60%; margin: 20px 0; }" +
+        ".carousel img { width: 100%; height: auto; }" +
+        ".carousel button { background-color: #333; color: #f4f4f4; border: none; padding: 10px; cursor: pointer; }" +
+        ".btn-group { margin-top: 20px; }" +
+        ".btn-group button { margin: 5px; padding: 10px 20px; background-color: #333; color: #f4f4f4; border: none; cursor: pointer; }" +
+        ".btn-group button:hover { background-color: #575757; }" +
+        ".graphs { display: flex; justify-content: space-around; width: 80%; margin: 20px 0; }" +
+        ".graph-item { width: 30%; text-align: center; background-color: #ddd; padding: 10px; border-radius: 8px; }" +
+        ".footer { background-color: #333; color: #f4f4f4; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }" +
+        "</style>" +
+        "</head>";    
 
         // Add some CSS (external file)
-        html = html + "<link rel='stylesheet' type='text/css' href='common.css' />";
-        html = html + "</head>";
+        html += "<link rel='stylesheet' type='text/css' href='common.css' />";
+        html += "</head>";
 
         // Add the body
-        html = html + "<body>";
+        html += "<body>";
 
         // Add the topnav
-        // This uses a Java v15+ Text Block
-        html = html + """
+        html += """
             <div class='topnav'>
                 <a href='/'>Homepage</a>
                 <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>Sub Task 2.A</a>
-                <a href='page2B.html'>Sub Task 2.B</a>
-                <a href='page3A.html'>Sub Task 3.A</a>
-                <a href='page3B.html'>Sub Task 3.B</a>
+                <a href='page2A.html'>LGA (2019-2020)</a>
+                <a href='page2B.html'>Focused View</a>
+                <a href='page3A.html'>Similar LGAs</a>
+                <a href='page3B.html'>Identify Changes</a>
             </div>
         """;
 
         // Add header content block
-        html = html + """
+        // <a herf = "/" id="navbar__logo">logo.png</a>
+         html += """
             <div class='header'>
                 <h1>
                     <img src='logo.png' class='top-image' alt='RMIT logo' height='75'>
@@ -67,99 +90,176 @@ public class PageIndex implements Handler {
         """;
 
         // Add Div for page Content
-        html = html + "<div class='content'>";
+        html += "<div class='content'>";
 
         // Add HTML for the page content
-        html = html + """
-            <p>Homepage content</p>
-            """;
+        html += "<p>Landing Page</p>";
 
-        // Get the ArrayList of Strings of all countries
-        ArrayList<String> lgas = getAllLGAs();
+        // Get the ArrayList of Strings of all LGAs
+        //ArrayList<String> lgas = getAllLGAs();
 
-        // Add HTML for the country list
-        html = html + "<h1>All LGAs (from 2018-2019) period in the Waste Recycling database</h1>" + "<ul>";
 
-        // Finally we can print out all of the countries
-        for (String name : lgas) {
-            html = html + "<li>" + name + "</li>";
+        html += """
+    <div class='carousel'>
+        <button onclick='prevSlide()'>&lt;</button>
+        <img id='carousel-image' src='zero wast1.png' alt='Zero Waste Image'>
+        <button onclick='nextSlide()'>&gt;</button>
+    </div>
+
+    <script>
+        // JavaScript code to make the carousel functional
+        const images = ['zero wast1.png', 'zero-waste2.png', 'images.png'];
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const imageElement = document.getElementById('carousel-image');
+            imageElement.src = images[index];
         }
 
-        // Finish the List HTML
-        html = html + "</ul>";
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
 
-        // Close Content div
-        html = html + "</div>";
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showSlide(currentIndex);
+        }
+    </script>
+""";
 
-        // Footer
-        html = html + """
-            <div class='footer'>
-                <p>COSC2803 - Studio Project Starter Code (Sep24)</p>
+html += """
+    <style>
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .carousel img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 10px;
+        }
+        .carousel button {
+            background-color: #333;
+            color: #f4f4f4;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+""";
+
+
+
+        html += """
+            <div class='btn-group'>
+                <button>LGA's (2018-2019)</button>
+                <button>LGA's (2019-2020)</button>
+                <button>House Surveyed (2018-2019)</button>
+                <button>House Surveyed (2019-2020)</button>
             </div>
         """;
 
+        
+
+        // Graph section
+        html += """
+            <div class='graphs'>
+                <div class='graph-item'>Graph 1</div>
+                <div class='graph-item'>Graph 2</div>
+                <div class='graph-item'>Graph 3</div>
+            </div>
+        """;
+
+        // Add HTML for the LGA list
+        html += "<h1>All LGAs (from 2018-2019) in the Waste Recycling database</h1><ul>";
+
+        // // Finally, we can print out all of the LGAs
+        // for (String name : lgas) {
+        //     html += "<li>" + name + "</li>";
+        // }
+
+        // Finish the List HTML
+        html += "</ul>";
+
+        // Close Content div
+        html += "</div>";
+
+        // Footer
+          
+         
+         // About Us and Contact Us buttons
+         html += """
+        <div class='footer'>
+            <button>FOLLOW US</button>
+            <button>ABOUT US</button>
+            <button>CONTACT US</button>
+        </div>
+    """;
+        
+           
+        
         // Finish the HTML webpage
-        html = html + "</body>" + "</html>";
+        html += "</body></html>";
 
-
-        // DO NOT MODIFY THIS
         // Makes Javalin render the webpage
         context.html(html);
     }
 
-
     /**
-     * Get the names of the countries in the database.
+     * Get the names of the LGAs in the database.
      */
-    public ArrayList<String> getAllLGAs() {
-        // Create the ArrayList of String objects to return
-        ArrayList<String> lgas = new ArrayList<String>();
+    // public ArrayList<String> getAllLGAs() {
+    //     // Create the ArrayList of String objects to return
+    //     ArrayList<String> lgas = new ArrayList<>();
 
-        // Setup the variable for the JDBC connection
-        Connection connection = null;
+    //     // Setup the variable for the JDBC connection
+    //     Connection connection = null;
 
-        try {
-            // Connect to JDBC data base
-            connection = DriverManager.getConnection(JDBCConnection.DATABASE);
+    //     try {
+    //         // Connect to JDBC database
+    //         connection = DriverManager.getConnection(JDBCConnection.DATABASE);
 
-            // Prepare a new SQL Query & Set a timeout
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);
+    //         // Prepare a new SQL Query & Set a timeout
+    //         Statement statement = connection.createStatement();
+    //         statement.setQueryTimeout(30);
 
-            // The Query
-            String query = "SELECT * FROM lga";
-            
-            // Get Result
-            ResultSet results = statement.executeQuery(query);
+    //         // The Query
+    //         String query = "SELECT name FROM lga";
 
-            // Process all of the results
-            while (results.next()) {
-                String lgaName  = results.getString("name");
+    //         // Get Result
+    //         ResultSet results = statement.executeQuery(query);
 
-                // Add the country object to the array
-                lgas.add(lgaName);
-            }
+    //         // Process all of the results
+    //         while (results.next()) {
+    //             String lgaName = results.getString("name");
 
-            // Close the statement because we are done with it
-            statement.close();
-        } catch (SQLException e) {
-            // If there is an error, lets just print the error
-            System.err.println(e.getMessage());
-            //e.printStackTrace();
-        } finally {
-            // Safety code to cleanup
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-                //e.printStackTrace();
-            }
-        }
+    //             // Add the LGA name to the array
+    //             lgas.add(lgaName);
+    //         }
 
-        // Finally we return all of the countries
-        return lgas;
-    }
+    //         // Close the statement
+    //         statement.close();
+    //     } catch (SQLException e) {
+    //         // If there is an error, print the error
+    //         System.err.println(e.getMessage());
+    //     } finally {
+    //         // Safety code to cleanup
+    //         try {
+    //             if (connection != null) {
+    //                 connection.close();
+    //             }
+    //         } catch (SQLException e) {
+    //             // Connection close failed.
+    //             System.err.println(e.getMessage());
+    //         }
+    //     }
+
+    //     // Return all of the LGAs
+    //     return lgas;
+    // }
 }

@@ -45,14 +45,14 @@ public class PageST3B implements Handler {
 
         // Add the topnav
         // This uses a Java v15+ Text Block
-        html = html + """
+        html += """
             <div class='topnav'>
                 <a href='/'>Homepage</a>
                 <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>Sub Task 2.A</a>
-                <a href='page2B.html'>Sub Task 2.B</a>
-                <a href='page3A.html'>Sub Task 3.A</a>
-                <a href='page3B.html'>Sub Task 3.B</a>
+                <a href='page2A.html'>LGA (2019-2020)</a>
+                <a href='page2B.html'>Focused View</a>
+                <a href='page3A.html'>Similar LGAs</a>
+                <a href='page3B.html'>Identify Changes</a>
             </div>
         """;
 

@@ -22,10 +22,10 @@ import java.sql.Statement;
  * @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
  */
 
-public class PageMission implements Handler {
+public class PageST3B implements Handler {
 
     // URL of this page relative to http://localhost:7001/
-    public static final String URL = "/mission.html";
+    public static final String URL = "/page3B.html";
 
     @Override
     public void handle(Context context) throws Exception {
@@ -34,7 +34,7 @@ public class PageMission implements Handler {
 
         // Add some Head information
         html = html + "<head>" + 
-               "<title>Our Mission</title>";
+               "<title>Subtask 3.2</title>";
 
         // Add some CSS (external file)
         html = html + "<link rel='stylesheet' type='text/css' href='common.css' />";
@@ -45,21 +45,21 @@ public class PageMission implements Handler {
 
         // Add the topnav
         // This uses a Java v15+ Text Block
-        html += """
+        html = html + """
             <div class='topnav'>
                 <a href='/'>Homepage</a>
                 <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>LGA (2019-2020)</a>
-                <a href='page2B.html'>Focused View</a>
-                <a href='page3A.html'>Similar LGAs</a>
-                <a href='page3B.html'>Identify Changes</a>
+                <a href='page2A.html'>Sub Task 2.A</a>
+                <a href='page2B.html'>Sub Task 2.B</a>
+                <a href='page3A.html'>Sub Task 3.A</a>
+                <a href='page3B.html'>Sub Task 3.B</a>
             </div>
         """;
 
         // Add header content block
         html = html + """
             <div class='header'>
-                <h1>Our Mission</h1>
+                <h1>Subtask 3.B</h1>
             </div>
         """;
 
@@ -68,27 +68,8 @@ public class PageMission implements Handler {
 
         // Add HTML for the page content
         html = html + """
-            <p>Mission page content</p>
+            <p>Subtask 3.B page content</p>
             """;
-
-        // This example uses JDBC to lookup the countries
-        JDBCConnection jdbc = new JDBCConnection();
-
-        // Next we will ask this *class* for the Countries
-        ArrayList<LGA> lgas = jdbc.getAllCountries();
-
-        // Add HTML for the countries list
-        html = html + "<h1>All LGAs (from 2018-2019) period in the Waste Recycling database (using JDBC Connection)</h1>" + "<ul>";
-
-        // Finally we can print out all of the Countries
-        for (LGA lga : lgas) {
-            html = html + "<li>" + lga.getCode()
-                        + " - " + lga.getName() + "</li>";
-        }
-
-        // Finish the List HTML
-        html = html + "</ul>";
-
 
         // Close Content div
         html = html + "</div>";

@@ -1,0 +1,37 @@
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: start;
+}
+
+.card img {
+    border-radius: 16px;
+}
+
+#left-personal {
+    transform: rotate(-5deg);
+    margin-top: 8px;
+}
+
+#right-personal {
+    transform: rotate(5deg);
+    margin-top: 8px;
+}
+
+#the-team {
+    text-align: center;
+}
+
+.students-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.student-images-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

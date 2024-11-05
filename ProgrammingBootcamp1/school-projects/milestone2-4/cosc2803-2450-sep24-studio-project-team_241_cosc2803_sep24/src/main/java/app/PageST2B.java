@@ -87,7 +87,8 @@ public class PageST2B implements Handler {
 
         // DO NOT MODIFY THIS
         // Makes Javalin render the webpage
-        context.html(html);
+        // context.html(html);
+        context.render("FocusedView.html");
     }
 
 }

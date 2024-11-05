@@ -48,16 +48,27 @@
     <h3>Table</h3>
     <table border="1">
         <tr>
-            <td>Country</td>
-            <td>Capital</td>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Flag</th>
         </tr>
         <tr>
             <td>Vietnam</td>
             <td>Hanoi</td>
+            <td>
+                <a href="https://en.wikipedia.org/wiki/Vietnam" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="vietnam flag" width="100">
+                </a>
+            </td>
         </tr>
         <tr>
             <td>United State of America</td>
             <td>Washington D.C</td>
+            <td>
+                <a href="https://en.wikipedia.org/wiki/United_States" target="_blank">
+                    <img src="https://seeklogo.com/images/U/usa-flag-logo-F080109EF3-seeklogo.com.png" alt="usa flag" width="100">
+                </a>
+            </td>
         </tr>
     </table>
 
@@ -88,7 +99,6 @@
 
     <button onclick="alert('wasssuppp!!')">Click me</button>
     
-
     
     <!-- Form: allow users to enter input and capture to send data to server -->
 
@@ -98,9 +108,23 @@
         <label for="">Username</label>
         <input type="text" name="client-username">
         <label for="">Password</label>
-        <input type="password" name="client-server">
+        <input type="password" name="client-password">
+
+        <label for="">Remember me?</label>
+        <input type="checkbox" name="" id="">
+
+        <label for="">Select gender</label>
+        <label for="">Male</label>
+        <input type="radio" name="gender" id="" value="male">
+        <label for="">Female</label>
+        <input type="radio" name="gender" id="" value="female">
+        <label for="">Others</label>
+        <input type="radio" name="gender" id="" value="others">
+
         <button>Login</button>
     </form>
+
+    <!-- tat ca input deu phai co attribute "name" -> dc dung lam key khi gui form data ve phia server -->
 
     
 

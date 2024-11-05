@@ -17,38 +17,74 @@
       <a href="page3B.html">Identify Changes</a>
     </div>
 
-    <div class='header'>
-        <h1>Focused View</h1>
+    <div class="header">
+      <h1>Focused View</h1>
+      <!-- // injecting name from data  -->
+
+      <h2 th:text="${myName}">????</h2>
     </div>
 
     <main>
-        <!-- // filters go here -->
-        <div class="filter">
+      <!-- // filters go here -->
+      <div class="filter">
+        <!-- <button id="btn-toggle-table">Show / hide table</button> -->
 
-        </div>
+        <form action="/page2B.html" method="GET">
+          <div>
+            <label for="">Select regional group</label>
+            <select name="regional-group" id="">
+              <option value="Sydney Metropolitan Area (SMA)">
+                Sydney Metropolitan Area (SMA)
+              </option>
+              <option value="Extended Regulated Area (ERA)">
+                Extended Regulated Area (ERA)
+              </option>
+              <option value="Regional Regulated Area (RRA)">
+                Regional Regulated Area (RRA)
+              </option>
+              <option value="Rest of NSW">Rest of NSW</option>
+            </select>
+          </div>
 
-        <div class="data-table">
-            <table>
-                <thead>
-                    <th>Annual period</th>
-                    <th>Total waste collected</th>
-                    <th>Total waste recycled</th>
-                    <th>Total waste disposed</th>
-                    <th>Percentage of waste disposed</th>
-                </thead>
-                <tbody>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+          <div>
+            <label for="">Select waste resource type</label>
+            <select name="waste-resource-type" id="">
+              <option value="recyclable">Recyclable</option>
+              <option value="organics">Organics</option>
+              <option value="waste">Waste</option>
+            </select>
+          </div>
 
-                </tbody>
-            </table>
-        </div>
+          <button>Apply</button>
+        </form>
+      </div>
 
+      <div>
+        <table border="1" id="data-table">
+          <thead>
+            <!-- <th>Annual period</th>
+            <th>Total waste collected</th>
+            <th>Total waste recycled</th>
+            <th>Total waste disposed</th>
+            <th>Percentage of waste disposed</th> -->
 
-
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Region Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="lga: ${lgas}">
+                <td th:text="${lga.code}"></td>
+                <td th:text="${lga.name}"></td>
+                <td th:text="${lga.regionType}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
+
+    <script src="focused-view.js"></script>
   </body>
 </html>

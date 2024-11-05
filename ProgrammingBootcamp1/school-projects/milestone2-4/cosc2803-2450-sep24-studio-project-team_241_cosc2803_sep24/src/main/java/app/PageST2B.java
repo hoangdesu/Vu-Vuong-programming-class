@@ -1,6 +1,7 @@
 package app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -29,66 +30,40 @@ public class PageST2B implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
-        // Create a simple HTML webpage in a String
-        String html = "<html>";
-
-        // Add some Head information
-        html = html + "<head>" + 
-               "<title>Subtask 2.2</title>";
-
-        // Add some CSS (external file)
-        html = html + "<link rel='stylesheet' type='text/css' href='common.css' />";
-        html = html + "</head>";
-
-        // Add the body
-        html = html + "<body>";
-
-        // Add the topnav
-        // This uses a Java v15+ Text Block
-        html += """
-            <div class='topnav'>
-                <a href='/'>Homepage</a>
-                <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>LGA (2019-2020)</a>
-                <a href='page2B.html'>Focused View</a>
-                <a href='page3A.html'>Similar LGAs</a>
-                <a href='page3B.html'>Identify Changes</a>
-            </div>
-        """;
-
-        // Add header content block
-        html = html + """
-            <div class='header'>
-                <h1>Subtask 2.B</h1>
-            </div>
-        """;
-
-        // Add Div for page Content
-        html = html + "<div class='content'>";
-
-        // Add HTML for the page content
-        html = html + """
-            <p>Subtask 2.B page content</p>
-            """;
-
-        // Close Content div
-        html = html + "</div>";
-
-        // Footer
-        html = html + """
-            <div class='footer'>
-                <p>COSC2803 - Studio Project Starter Code (Sep24)</p>
-            </div>
-        """;
-
-        // Finish the HTML webpage
-        html = html + "</body>" + "</html>";
+        // String queryString = context.queryString();
         
+        // System.out.println(">> queryString: " + queryString); // regional-group=Rest+of+NSW&waste-resource-type=waste
 
-        // DO NOT MODIFY THIS
-        // Makes Javalin render the webpage
-        // context.html(html);
-        context.render("FocusedView.html");
+        String regionalGroup = context.queryParam("regional-group");
+        String wasteResourceType = context.queryParam("waste-resource-type");
+
+        System.out.println("regionalGroup: " + regionalGroup);
+        System.out.println("wasteResourceType: " + wasteResourceType);
+
+        JDBCConnection jdbc = new JDBCConnection();
+
+        ArrayList<LGA> lgas = jdbc.getAllLgasByRegionType();
+
+        System.out.println("- LGAS:");
+        // System.out.println(lgas);
+
+        for (LGA lga : lgas) {
+            System.out.println("lga: " + lga.toString());
+        }
+
+
+        // HashMap<String, String> capitals = new HashMap<>();
+        // capitals.put("vietnam", "hanoi");
+        // capitals.put("japan", "tokyo");
+
+        // capitals.get("japan") -> "tokyo"
+
+        HashMap<String, Object> data = new HashMap<>();
+
+        String name = "Vuong" + " " + " Vu";
+        data.put("myName", name);
+        data.put("lgas", lgas);
+
+        context.render("FocusedView.html", data);
     }
-
 }

@@ -30,6 +30,8 @@ public class App {
 
             // Uncomment this if you have files in the Images Directory
             config.addStaticFiles(IMAGES_DIR);
+
+            config.addStaticFiles("javascripts/");
         }).start(JAVALIN_PORT);
 
 

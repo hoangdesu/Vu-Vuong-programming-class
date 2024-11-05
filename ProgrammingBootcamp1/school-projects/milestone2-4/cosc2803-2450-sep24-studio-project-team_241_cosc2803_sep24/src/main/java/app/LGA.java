@@ -13,6 +13,8 @@ package app;
  
     // LGA Name
     private String name;
+
+    private String regionType;
  
     /**
      * Create an LGA and set the fields
@@ -21,6 +23,12 @@ package app;
        this.code = code;
        this.name = name;
     }
+
+    public LGA(int code, String name, String regionType) {
+       this.code = code;
+       this.name = name;
+       this.regionType = regionType;
+    }
  
     public int getCode() {
        return code;
@@ -28,6 +36,14 @@ package app;
  
     public String getName() {
        return name;
+    }
+
+    public String getRegionType() {
+      return this.regionType;
+    }
+
+    public String toString() {
+      return String.format("code: %d - name: %s - regionType: %s", code, name, regionType);
     }
  }
  

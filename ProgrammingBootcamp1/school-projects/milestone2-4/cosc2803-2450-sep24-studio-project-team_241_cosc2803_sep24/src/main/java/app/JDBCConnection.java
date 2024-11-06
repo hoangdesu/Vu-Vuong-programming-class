@@ -125,7 +125,7 @@ public class JDBCConnection {
           String regionType = rs.getString("RegionType");
 
           LGA lga = new LGA(code, name, regionType);
-          System.out.println("Adding LGA: " + lga.toString());
+          // System.out.println("Adding LGA: " + lga.toString());
 
           lgas.add(lga);
         }

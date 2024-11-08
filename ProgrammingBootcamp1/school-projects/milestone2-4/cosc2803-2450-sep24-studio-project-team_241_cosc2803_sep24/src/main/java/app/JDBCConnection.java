@@ -1,5 +1,6 @@
 package app;
 
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for Managing the JDBC Connection to a SQLLite Database.
@@ -135,5 +138,74 @@ public class JDBCConnection {
     }
 
     return lgas;
+  }
+
+  public double getRegionalOrganicCollectedWasteDifference(
+    String yearStart, // e.g. 2016
+    String yearEnd // e.g. 2021
+  ) {
+    String query =
+      """
+    SELECT AREA, Years, Collected
+    FROM RegionalOrganics
+    WHERE AREA = 'SMA'
+    AND (Years LIKE ? OR Years LIKE ?)
+    ORDER BY Years;
+        """;
+
+    System.out.println("running getRegionalOrganicCollectedWasteDifference");
+    System.out.println(yearStart+" "+yearEnd);
+
+    try (
+      Connection conn = this.connect();
+      PreparedStatement pstmt = conn.prepareStatement(query);
+    ) {
+      System.out.println("");
+
+      // String shortYearStart = String.valueOf(yearStart).substring(2); // 2016 -> '2016' -> 16
+      String shortYearStart = "__" + yearStart.substring(2) + "%"; // e.g., "16" -> "__16%"
+      System.out.println("shortYearStart" + shortYearStart);
+      pstmt.setString(1, shortYearStart);
+      
+      // String shortYearEnd = String.valueOf(yearEnd).substring(2); // 2016 -> '2016' -> 16
+      String shortYearEnd = "%" + yearEnd.substring(2); // e.g., "21" -> "%21"
+      System.out.println("shortYearEnd" + shortYearEnd);
+      pstmt.setString(2, shortYearEnd);
+
+      ArrayList<HashMap<String, Object>> results = new ArrayList<>();
+
+      try (ResultSet rs = pstmt.executeQuery()) {
+        while (rs.next()) {
+          String name = rs.getString("Area");
+          String years = rs.getString("Years");
+          double collected = rs.getDouble("Collected");
+
+          HashMap<String, Object> map = new HashMap<>();
+          map.put("name", name);
+          map.put("years", years);
+          map.put("collected", collected);
+
+          results.add(map);
+
+          System.out.println("map: " + map);
+
+          // LGA lga = new LGA(code, name, regionType);
+          // System.out.println("Adding LGA: " + lga.toString());
+
+          // lgas.add(lga);
+
+        }
+
+        System.out.println(results);
+      } catch (SQLException e) {
+        System.err.println("ResultSet error");
+      }
+    } catch (SQLException e) {
+      System.err.println("Connection / PreparedStatement error");
+      System.err.println("Error: " + e.getMessage());
+
+    }
+
+    return 1.0;
   }
 }

@@ -1,6 +1,7 @@
 package app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -29,65 +30,25 @@ public class PageST3B implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
-        // Create a simple HTML webpage in a String
-        String html = "<html>";
+        JDBCConnection jdbcConnection = new JDBCConnection();
 
-        // Add some Head information
-        html = html + "<head>" + 
-               "<title>Subtask 3.2</title>";
+        String fromYear = context.formParam("fromYear");
+        String toYear = context.formParam("toYear");
 
-        // Add some CSS (external file)
-        html = html + "<link rel='stylesheet' type='text/css' href='common.css' />";
-        html = html + "</head>";
+        System.out.println("--- server");
+        System.out.println("from to years: " + fromYear + " " + toYear);
 
-        // Add the body
-        html = html + "<body>";
+        double difference = jdbcConnection.getRegionalOrganicCollectedWasteDifference("2016", "2021");
 
-        // Add the topnav
-        // This uses a Java v15+ Text Block
-        html += """
-            <div class='topnav'>
-                <a href='/'>Homepage</a>
-                <a href='mission.html'>Our Mission</a>
-                <a href='page2A.html'>LGA (2019-2020)</a>
-                <a href='page2B.html'>Focused View</a>
-                <a href='page3A.html'>Similar LGAs</a>
-                <a href='page3B.html'>Identify Changes</a>
-            </div>
-        """;
+        HashMap<String, Object> data = new HashMap<>();
 
-        // Add header content block
-        html = html + """
-            <div class='header'>
-                <h1>Subtask 3.B</h1>
-            </div>
-        """;
-
-        // Add Div for page Content
-        html = html + "<div class='content'>";
-
-        // Add HTML for the page content
-        html = html + """
-            <p>Subtask 3.B page content</p>
-            """;
-
-        // Close Content div
-        html = html + "</div>";
-
-        // Footer
-        html = html + """
-            <div class='footer'>
-                <p>COSC2803 - Studio Project Starter Code (Sep24)</p>
-            </div>
-        """;
-
-        // Finish the HTML webpage
-        html = html + "</body>" + "</html>";
+        // put data here
+        data.put("difference", difference);
         
 
-        // DO NOT MODIFY THIS
-        // Makes Javalin render the webpage
-        context.html(html);
+
+
+        context.render("IdentifyChanges.html", data);
     }
 
 }

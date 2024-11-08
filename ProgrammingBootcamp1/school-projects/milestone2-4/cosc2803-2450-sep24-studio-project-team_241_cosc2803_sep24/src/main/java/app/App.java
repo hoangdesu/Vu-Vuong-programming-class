@@ -1,5 +1,7 @@
 package app;
 
+import java.util.HashMap;
+
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 
@@ -47,6 +49,27 @@ public class App {
         app.get(PageST2B.URL, new PageST2B());
         app.get(PageST3A.URL, new PageST3A());
         app.get(PageST3B.URL, new PageST3B());
+        app.post("/filter-data", context -> {
+JDBCConnection jdbcConnection = new JDBCConnection();
+
+        String fromYear = context.formParam("fromYear");
+        String toYear = context.formParam("toYear");
+
+        System.out.println("--- server");
+        System.out.println("from to years: " + fromYear + " " + toYear);
+
+        double difference = jdbcConnection.getRegionalOrganicCollectedWasteDifference(fromYear, toYear);
+
+        HashMap<String, Object> data = new HashMap<>();
+
+        // put data here
+        data.put("difference", difference);
+        
+
+
+
+        context.render("IdentifyChanges.html", data);
+        });
 
         // uncomment the following for groups of 3 
         // you will need to copy and create the relevant class file from the corresponding template above           

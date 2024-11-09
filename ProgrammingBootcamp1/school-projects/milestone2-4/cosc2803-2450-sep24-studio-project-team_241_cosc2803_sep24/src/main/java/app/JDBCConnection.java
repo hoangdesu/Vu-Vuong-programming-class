@@ -140,7 +140,8 @@ public class JDBCConnection {
     return lgas;
   }
 
-  public double getRegionalOrganicCollectedWasteDifference(
+  public double[] getRegionalOrganicCollectedWasteDifference(
+    // String area,
     String yearStart, // e.g. 2016
     String yearEnd // e.g. 2021
   ) {
@@ -155,6 +156,9 @@ public class JDBCConnection {
 
     System.out.println("running getRegionalOrganicCollectedWasteDifference");
     System.out.println(yearStart+" "+yearEnd);
+
+    double difference = 0.0;
+    double diffPercentage = 0.0;
 
     try (
       Connection conn = this.connect();
@@ -175,25 +179,36 @@ public class JDBCConnection {
       ArrayList<HashMap<String, Object>> results = new ArrayList<>();
 
       try (ResultSet rs = pstmt.executeQuery()) {
-        while (rs.next()) {
-          String name = rs.getString("Area");
-          String years = rs.getString("Years");
-          double collected = rs.getDouble("Collected");
+        // while (rs.next()) {
+        //   String name = rs.getString("Area");
+        //   String years = rs.getString("Years");
+        //   double collected = rs.getDouble("Collected");
 
-          HashMap<String, Object> map = new HashMap<>();
-          map.put("name", name);
-          map.put("years", years);
-          map.put("collected", collected);
+        //   HashMap<String, Object> map = new HashMap<>();
+        //   map.put("name", name);
+        //   map.put("years", years);
+        //   map.put("collected", collected);
 
-          results.add(map);
+        //   results.add(map);
 
-          System.out.println("map: " + map);
+        //   System.out.println("map: " + map);
 
-          // LGA lga = new LGA(code, name, regionType);
-          // System.out.println("Adding LGA: " + lga.toString());
+        //   // LGA lga = new LGA(code, name, regionType);
+        //   // System.out.println("Adding LGA: " + lga.toString());
 
-          // lgas.add(lga);
+        //   // lgas.add(lga);
+        // }
 
+        
+        if (rs.next()) {
+          double prevCollected = rs.getDouble("Collected");
+          System.out.println("prevCollected: " + prevCollected);
+          if (rs.next()) {
+            double nextCollected = rs.getDouble("Collected");
+            System.out.println("nextCollected: " + nextCollected);
+            difference = nextCollected - prevCollected;
+            diffPercentage = difference / nextCollected * 100;
+          }
         }
 
         System.out.println(results);
@@ -206,6 +221,6 @@ public class JDBCConnection {
 
     }
 
-    return 1.0;
+    return new double[]{ difference, diffPercentage };
   }
 }

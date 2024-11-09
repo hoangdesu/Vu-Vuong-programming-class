@@ -1,16 +1,14 @@
 package app;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Example Index HTML class using Javalin
@@ -25,30 +23,29 @@ import java.sql.Statement;
 
 public class PageST3B implements Handler {
 
-    // URL of this page relative to http://localhost:7001/
-    public static final String URL = "/page3B.html";
+  // URL of this page relative to http://localhost:7001/
+  public static final String URL = "/page3B.html";
 
-    @Override
-    public void handle(Context context) throws Exception {
-        JDBCConnection jdbcConnection = new JDBCConnection();
+  @Override
+  public void handle(Context context) throws Exception {
+    JDBCConnection jdbcConnection = new JDBCConnection();
 
-        String fromYear = context.formParam("fromYear");
-        String toYear = context.formParam("toYear");
+    String fromYear = context.formParam("fromYear");
+    String toYear = context.formParam("toYear");
 
-        System.out.println("--- server");
-        System.out.println("from to years: " + fromYear + " " + toYear);
+    System.out.println("--- server");
+    System.out.println("from to years: " + fromYear + " " + toYear);
 
-        double difference = jdbcConnection.getRegionalOrganicCollectedWasteDifference("2016", "2021");
+    double difference[] = jdbcConnection.getRegionalOrganicCollectedWasteDifference(
+      "2016",
+      "2021"
+    );
 
-        HashMap<String, Object> data = new HashMap<>();
+    HashMap<String, Object> data = new HashMap<>();
 
-        // put data here
-        data.put("difference", difference);
-        
+    // put data here
+    data.put("difference", difference);
 
-
-
-        context.render("IdentifyChanges.html", data);
-    }
-
+    context.render("IdentifyChanges.html", data);
+  }
 }

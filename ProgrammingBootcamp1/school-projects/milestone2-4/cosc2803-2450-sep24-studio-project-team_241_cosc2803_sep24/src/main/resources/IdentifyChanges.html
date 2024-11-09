@@ -52,6 +52,14 @@
       </form>
 
 
+      <h1>Difference</h1>
+      <div th:if="${difference || diffPercentage}">
+        <p th:text="${'difference: ' + difference}"></p>
+        <p th:text="${'diffPercentage: ' + diffPercentage}"></p>
+        
+      </div>
+
+
 
 
 

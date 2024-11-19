@@ -72,8 +72,8 @@ public class App {
         HashMap<String, Object> data = new HashMap<>();
 
         // put data here
-        data.put("difference", differences[0]);
-        data.put("diffPercentage", differences[1]);
+        data.put("difference", String.format("%.2f", differences[0]));
+        data.put("diffPercentage", String.format("%.2f%%", differences[1]) );
 
         context.render("IdentifyChanges.html", data);
       }

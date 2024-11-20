@@ -51,10 +51,10 @@ public class Nov19_Review {
         System.out.println(data);
 
 
-        HW1:
+//        HW1:
 //        getWordFrequency(String) -> {haha: 1, hehe: 1, hoho: 1};
-        String a = "haha hehe hoho";
-        String[] words = a.split(" ");
+//        String a = "haha hehe hoho";
+//        String[] words = a.split(" ");
 
 
 //        HW2

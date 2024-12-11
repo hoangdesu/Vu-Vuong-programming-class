@@ -87,6 +87,7 @@ public class Dec5_Algo {
 
 //        return map1.equals(map2);
 
+        // guard clauses
         for (String map1Key : map1.keySet()) {
             if (!map2.containsKey(map1Key)) return false;
             if (!Objects.equals(map1.get(map1Key), map2.get(map1Key))) return false;

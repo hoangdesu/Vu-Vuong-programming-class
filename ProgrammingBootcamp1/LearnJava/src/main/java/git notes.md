@@ -19,3 +19,7 @@ git push
 git pull
 
 git clone
+
+git checkout -b <branch-name>: CREATE a new branch
+
+git checkout <branch-name>: SWITCH to a different branch

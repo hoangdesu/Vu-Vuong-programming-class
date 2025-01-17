@@ -23,3 +23,5 @@ git clone
 git checkout -b <branch-name>: CREATE a new branch
 
 git checkout <branch-name>: SWITCH to a different branch
+
+git checkout main: checkout latest code on the main branch

@@ -36,7 +36,6 @@ public class Oct18_HashMap {
 
         System.out.println(capitals.size());
 
-
     }
 //    "MCMXCV" = 1995
 }

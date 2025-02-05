@@ -36,7 +36,7 @@ public class Jan20_PassByReferenceValues {
 //          - the values are copied
 
 //        2. Pass by reference:
-//          - passing objects into a function
+//          - passing a wrapper type (reference type) into a function
 //          - values are directly referenced
 
 //        Primitive vs Wrapper (reference) data types

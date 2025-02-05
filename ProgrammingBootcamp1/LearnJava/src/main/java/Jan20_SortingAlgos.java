@@ -42,17 +42,17 @@ public class Jan20_SortingAlgos {
 
     public static void selectionSort(int[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
-            int tempMinIndex = i;
+            int minIndex = i;
             for (int j = i+1; j < nums.length; j++) {
-                if (nums[j] < nums[tempMinIndex]) {
-                    tempMinIndex = j;
+                if (nums[j] < nums[minIndex]) {
+                    minIndex = j;
                 }
             }
 
 //            swap values
-            int tempI = nums[i];
-            nums[i] = nums[tempMinIndex];
-            nums[tempMinIndex] = tempI;
+            int temp = nums[i];
+            nums[i] = nums[minIndex];
+            nums[minIndex] = temp;
         }
     }
 }

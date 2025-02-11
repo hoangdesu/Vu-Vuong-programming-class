@@ -49,7 +49,7 @@ public class Feb7_Strings {
 //        dynamic (động): varied length
 //        ArrayList: ?
 
-        mixAndMatch("Java", "python language") -> "Jpayvtahon language"
+//        mixAndMatch("Java", "python language") -> "Jpayvtahon language"
 
 //        https://leetcode.com/problems/longest-common-prefix/description/?envType=problem-list-v2&envId=string
 
@@ -91,7 +91,7 @@ public class Feb7_Strings {
         return arr;
     }
 
-    String mixAndMatch(String s1, String s2) {
-
-    }
+//    String mixAndMatch(String s1, String s2) {
+//
+//    }
 }

@@ -5,3 +5,5 @@ g++ hola.cpp -o ../out/hola.out && ../out/hola.out
 g++ -std=c++20 feb19_hello.cpp  -o ../out/feb19_hello.out && ../out/feb19_hello.out
 
 g++ -std=c++20 hello.cpp  -o ../out/hello.out && ../out/hello.out
+
+g++ -std=c++20 feb21_basics.cc -o ../out/feb21_basics.out && ../out/feb21_basics.out

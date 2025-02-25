@@ -96,7 +96,7 @@ int main() {
 
     // cout << "Hello " << myName << endl;
 
-    string country = "vietnam";
+    string country = "vietnam"; // -> "Vietnam" // => country[0] = 'V'
     string people = country.append("ese"); // country + "ese"
     
 

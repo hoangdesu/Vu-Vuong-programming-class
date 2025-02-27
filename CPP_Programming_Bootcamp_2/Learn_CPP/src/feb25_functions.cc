@@ -48,7 +48,7 @@ int main(void) {
     cout << "isPrimeNumber 7: " << isPrimeNumber(7) << endl; // 1 = true
     cout << "isPrimeNumber 8: " << isPrimeNumber(8) << endl; // 0 = false
 
-    
+
     cout << "Enter a number: ";
     int num;
     cin >> num;

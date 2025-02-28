@@ -12,4 +12,6 @@ g++ -std=c++11 feb25_functions.cc -o ../out/feb25_functions.out && ../out/feb25_
 
 g++ -std=c++11 feb27_pointers.cpp -o ../out/feb27_pointers.out && ../out/feb27_pointers.out
 
+g++ -std=c++11 feb28_practice_pointers.cpp -o ../out/feb28_practice_pointers.out && ../out/feb28_practice_pointers.out
+
 

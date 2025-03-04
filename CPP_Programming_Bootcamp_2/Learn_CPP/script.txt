@@ -14,4 +14,7 @@ g++ -std=c++11 feb27_pointers.cpp -o ../out/feb27_pointers.out && ../out/feb27_p
 
 g++ -std=c++11 feb28_practice_pointers.cpp -o ../out/feb28_practice_pointers.out && ../out/feb28_practice_pointers.out
 
+g++ -std=c++11 mar1_pointers.cc -o ../out/mar1_pointers.out && ../out/mar1_pointers.out
+
+g++ -std=c++11 mar4_nestedloops.cc -o ../out/mar4_nestedloops.out && ../out/mar4_nestedloops.out
 

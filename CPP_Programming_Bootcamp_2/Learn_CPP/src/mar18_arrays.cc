@@ -28,8 +28,15 @@ int main(void) {
 
     cout << "array's length: " << sizeof(drinks) / sizeof(drinks[0]) << endl;
 
-    int drinks_len = sizeof(drinks) / sizeof(drinks[0]);
 
+    // WARNING: This seems to work, but actually wrong!
+    // It gets the length of the first string "coffee" (len=6), not the length of the whole array
+    for (int i = 0; i < drinks->length(); i++) {
+        cout << i << " - wrong: " << drinks[i] << endl;
+    }
+
+    // Correct way to loop through array in C++
+    int drinks_len = sizeof(drinks) / sizeof(drinks[0]);
     for (int i = 0; i < drinks_len; i++) {
         cout << i << ". " << drinks[i] << endl;
     }

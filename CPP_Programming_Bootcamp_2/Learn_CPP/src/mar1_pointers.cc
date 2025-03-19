@@ -65,7 +65,7 @@ int main(void)  {
     // Perform arithmetic calculations on pointers
     long nums[] = {10, 20, 30}; // len = 3 => limit index: 0-2
 
-    // Pointer of an array: referencing the first value in the array
+    // Pointer of an array: referencing the FIRST VALUE in the array
     long *ptrNums = nums; // 0
 
     cout << "Address of ptr: " << ptrNums << ". Value = "; 

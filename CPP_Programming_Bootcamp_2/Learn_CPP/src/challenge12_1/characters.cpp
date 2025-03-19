@@ -12,15 +12,15 @@ std::string CheckCharacter(std::string word, int index) {
 
     std::string category = "Unknown: ";
 
-    if ((c > 'a' && c < 'z') || (c > 'A' && c < 'Z')) {
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
         category = "Letter: ";
-    } else if (c > '0' && c < '9') {
+    } else if (c >= '0' && c <= '9') {
         category = "Digit: ";
     } else if (c == ' ') {
         category = "Whitespace: ";
     }
 
-    std::string res = category + "'" + std::string(&c, &c + 1) + "'";
+    std::string res = category + "'" + std::string(&c, &c + 1) + "'"; // '\0'
 
     return res;
 }

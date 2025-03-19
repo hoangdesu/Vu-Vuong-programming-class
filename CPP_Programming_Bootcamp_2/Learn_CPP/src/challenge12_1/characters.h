@@ -1,3 +1,4 @@
+// Header guards
 #pragma once
 #ifndef CHARACTERS_H // if not defined
 #define CHARACTERS_H

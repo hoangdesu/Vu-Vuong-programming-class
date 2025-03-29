@@ -50,4 +50,6 @@ int main() {
 
     fibonacci(8) -> 13
     fibonacci(9) -> 21
+    fibonacci(10) -> 34
+    fibonacci(11) -> 55
 }

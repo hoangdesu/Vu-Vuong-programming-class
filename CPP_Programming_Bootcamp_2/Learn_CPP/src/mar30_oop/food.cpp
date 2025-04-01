@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Food::Food() {}
+
 Food::Food(string name) {
     this->name = name;
     rating = 0;

@@ -36,11 +36,8 @@ int main() {
 
     delete &ramen;
 
-
-    // TODO: 
-    // - fix this constructor overloading bug
-    // - Slide 6 class 1
     Food pho;
+    cout << "printing empty object pho: ";
     pho.printFood();
 
     return EXIT_SUCCESS;

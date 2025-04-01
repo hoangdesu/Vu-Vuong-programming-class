@@ -10,9 +10,9 @@ using namespace std;
 class Food {
     public:
         // constructor overloading
-        // Food();
+        Food();
         Food(string name);
-        Food(string name = "rice", int rating = 0);
+        Food(string name, int rating);
         
         void printFood();
 

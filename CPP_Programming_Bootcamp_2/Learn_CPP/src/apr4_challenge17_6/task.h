@@ -12,7 +12,7 @@ public:
 
     Student(const std::string &name_val = "", int score_val = 0);
 
-    bool operator==(const Student other);
+    bool operator==(const Student &other);
     bool operator!=(const Student &other);
     bool operator<(const Student &other);
     bool operator>(const Student &other);

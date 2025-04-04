@@ -1,30 +1,31 @@
 #include <iostream>
-// #include "task.h"
-
-// int find_max(int[] nums, int size) {
-
-// }
-
-using namespace std;
+#include "task.h"
 
 int main()
 {
-    int nums[] = {3, 1, 2, 9 ,5 , 4};
-    
-    int max = nums[0]; // assuming first number is the largest
-    int len = sizeof(nums) / sizeof(nums[0]);
-    for (int i = 0; i < len; i++) {
-        if (nums[i] > max) {
-            max = nums[i];
-        }
-    }
+    const int num_animals = 7;
 
-    // for (animal : animals) {
-    //     if animal.age > max_age:
-    //         max_age = animal.age
-    // }
+    // Declare and initialize a built-in array of Animal objects
+    Animal k1("koala", "koala-la-la", 5, 5, 5);
+    Animal k2("koala", "koko", 12, 2, 8);
+    Animal k3("koala", "coffee", 3, 7, 0);
+    Animal k4("koala", "cookie", 15, 1, 2);
+    Animal k5("koala", "crumpet", 11, 0, 1);
+    Animal t1("tiger", "tigger", 6, 5, 0);
+    Animal t2("tiger", "trevor", 9, 6, 1); 
 
-    cout << "Max num = " << max << endl;
+    Animal animals[num_animals] {k1, k2, k3, k4, k5, t1, t2};
+
+    // Call non-member function find_oldest_animal
+    Animal* oldest = oldest_animal(animals, num_animals);
+
+    oldest->print();
     
-    return 0;
+    return EXIT_SUCCESS;
 }
+
+
+
+
+
+

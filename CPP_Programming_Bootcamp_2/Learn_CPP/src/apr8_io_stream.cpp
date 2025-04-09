@@ -24,7 +24,6 @@ int main() {
     fileToRead.open("hola.cpp");
     // fileToRead.
 
-    string content = "";
     string line;
     while (std::getline(fileToRead, line)) {
         cout << line << endl;

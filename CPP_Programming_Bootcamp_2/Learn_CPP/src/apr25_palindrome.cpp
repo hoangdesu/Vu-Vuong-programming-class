@@ -19,10 +19,12 @@ int main() {
     // if s[h] == s[t]: continue until center
     // if only 1 pair is not equal -> return false
 
+    string line;
+    getline(cin, line);
+
     cout << isSentencePalindrome("senile felines!") << endl; // 1
     cout << isSentencePalindrome("8276se*&^nile fe(*&li_!*=))nes000!") << endl; // 1
     cout << isSentencePalindrome("s$^%ni$^%1le  ^%$ FeLin3$^%es345!") << endl; // 1
-
 
     return EXIT_SUCCESS;
 }

@@ -48,3 +48,5 @@ CMakeFiles
 
 #Generated documentation
 doc/
+
+.DS_Store

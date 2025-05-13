@@ -1,0 +1,4 @@
+*.sym
+*.hex
+*.bin
+*.lst

@@ -5,3 +5,199 @@
 [00:00:32] [Server thread/INFO]: Kingods0607 issued server command: /day set time
 [00:00:34] [Server thread/INFO]: Kingods0607 issued server command: /time set day
 [00:00:34] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[00:03:56] [Server thread/INFO]: Kingods0607 lost connection: Disconnected
+[00:03:56] [Server thread/INFO]: Kingods0607 left the game
+[00:13:37] [Thread-17/INFO]: [ELCI] Starting output thread!
+[00:13:37] [Thread-16/INFO]: [ELCI] Starting input thread
+[00:13:37] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:59501.
+[00:13:37] [Server thread/WARN]: [ELCI] [!!WARNING!!] Valid player entity does not exist on server.
+[00:13:37] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:59501.
+[00:15:13] [User Authenticator #2/INFO]: UUID of player Kingods0607 is cc3351c2-3fcc-4d2c-84b8-d2e3e43839a6
+[00:15:14] [Server thread/INFO]: Welcome Kingods0607[m
+[00:15:14] [Server thread/INFO]: Kingods0607 joined the game
+[00:15:14] [Server thread/INFO]: Kingods0607[/[0:0:0:0:0:0:0:1]:59603] logged in with entity id 331 at ([world]308.7766647630165, 89.21328087619125, 45.75560309604665)
+[00:15:20] [Server thread/INFO]: Kingods0607 issued server command: /time set day
+[00:15:20] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[00:15:25] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:59611.
+[00:15:25] [Thread-21/INFO]: [ELCI] Starting input thread
+[00:15:25] [Thread-22/INFO]: [ELCI] Starting output thread!
+[00:15:26] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:59611.
+[00:16:51] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:59649.
+[00:16:51] [Thread-23/INFO]: [ELCI] Starting input thread
+[00:16:51] [Thread-24/INFO]: [ELCI] Starting output thread!
+[00:16:51] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:59649.
+[00:18:35] [Thread-30/INFO]: [ELCI] Starting input thread
+[00:18:35] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:59668.
+[00:18:35] [Thread-31/INFO]: [ELCI] Starting output thread!
+[00:18:36] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:59668.
+[00:19:36] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:59687.
+[00:19:36] [Thread-33/INFO]: [ELCI] Starting output thread!
+[00:19:36] [Thread-32/INFO]: [ELCI] Starting input thread
+[00:19:36] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:59687.
+[00:29:39] [Server thread/INFO]: Kingods0607 issued server command: /time set day
+[00:29:39] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[00:34:58] [Thread-38/INFO]: [ELCI] Starting input thread
+[00:34:58] [Thread-39/INFO]: [ELCI] Starting output thread!
+[00:34:58] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60165.
+[00:34:59] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60165.
+[00:35:17] [Thread-41/INFO]: [ELCI] Starting output thread!
+[00:35:17] [Thread-40/INFO]: [ELCI] Starting input thread
+[00:35:17] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60169.
+[00:35:17] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60169.
+[01:01:38] [Server thread/INFO]: Kingods0607 issued server command: /time set day
+[01:01:38] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[01:01:44] [Server thread/INFO]: Kingods0607 issued server command: /weather clear
+[01:01:44] [Server thread/INFO]: [Kingods0607: Set the weather to clear]
+[01:09:49] [Thread-47/INFO]: [ELCI] Starting output thread!
+[01:09:49] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60796.
+[01:09:49] [Thread-46/INFO]: [ELCI] Starting input thread
+[01:09:49] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60796.
+[01:12:23] [Thread-50/INFO]: [ELCI] Starting output thread!
+[01:12:23] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60849.
+[01:12:23] [Thread-49/INFO]: [ELCI] Starting input thread
+[01:12:23] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60849.
+[01:14:27] [Thread-52/INFO]: [ELCI] Starting output thread!
+[01:14:27] [Thread-51/INFO]: [ELCI] Starting input thread
+[01:14:27] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60890.
+[01:14:27] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [m
+[01:14:28] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60890.
+[01:15:02] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60896.
+[01:15:02] [Thread-55/INFO]: [ELCI] Starting output thread!
+[01:15:02] [Thread-54/INFO]: [ELCI] Starting input thread
+[01:15:02] [Server thread/INFO]: [m
+[01:15:02] [Server thread/INFO]: [m
+[01:15:02] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [m
+[01:15:03] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60896.
+[01:17:28] [Thread-57/INFO]: [ELCI] Starting input thread
+[01:17:28] [Thread-58/INFO]: [ELCI] Starting output thread!
+[01:17:28] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:60927.
+[01:17:29] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:60927.
+[01:26:35] [Server thread/INFO]: Kingods0607 issued server command: /time set day
+[01:26:35] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[01:26:36] [Server thread/INFO]: Kingods0607 issued server command: /weather clear
+[01:26:36] [Server thread/INFO]: [Kingods0607: Set the weather to clear]
+[01:26:44] [Thread-65/INFO]: [ELCI] Starting output thread!
+[01:26:44] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61213.
+[01:26:44] [Thread-64/INFO]: [ELCI] Starting input thread
+[01:26:45] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61213.
+[01:36:08] [Thread-70/INFO]: [ELCI] Starting output thread!
+[01:36:08] [Thread-69/INFO]: [ELCI] Starting input thread
+[01:36:08] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61566.
+[01:36:09] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61566.
+[01:36:17] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61575.
+[01:36:17] [Thread-72/INFO]: [ELCI] Starting output thread!
+[01:36:17] [Thread-71/INFO]: [ELCI] Starting input thread
+[01:36:18] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61575.
+[01:39:09] [Thread-73/INFO]: [ELCI] Starting input thread
+[01:39:09] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61629.
+[01:39:09] [Thread-74/INFO]: [ELCI] Starting output thread!
+[01:39:10] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61629.
+[01:39:16] [Server thread/INFO]: Kingods0607 issued server command: /time set day
+[01:39:16] [Server thread/INFO]: [Kingods0607: Set the time to 1000]
+[01:39:26] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61638.
+[01:39:26] [Thread-75/INFO]: [ELCI] Starting input thread
+[01:39:26] [Thread-76/INFO]: [ELCI] Starting output thread!
+[01:39:27] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61638.
+[01:39:47] [Thread-77/INFO]: [ELCI] Starting input thread
+[01:39:47] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61640.
+[01:39:47] [Thread-78/INFO]: [ELCI] Starting output thread!
+[01:39:49] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61640.
+[01:40:07] [Thread-81/INFO]: [ELCI] Starting output thread!
+[01:40:07] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61645.
+[01:40:07] [Thread-80/INFO]: [ELCI] Starting input thread
+[01:40:08] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61645.
+[01:41:50] [Thread-84/INFO]: [ELCI] Starting output thread!
+[01:41:50] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61668.
+[01:41:50] [Thread-83/INFO]: [ELCI] Starting input thread
+[01:41:52] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61668.
+[01:42:10] [Thread-85/INFO]: [ELCI] Starting input thread
+[01:42:10] [Thread-86/INFO]: [ELCI] Starting output thread!
+[01:42:10] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61670.
+[01:42:11] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61670.
+[01:42:37] [Thread-88/INFO]: [ELCI] Starting output thread!
+[01:42:37] [Thread-87/INFO]: [ELCI] Starting input thread
+[01:42:37] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61684.
+[01:42:39] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61684.
+[01:42:42] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61686.
+[01:42:42] [Thread-89/INFO]: [ELCI] Starting input thread
+[01:42:42] [Thread-90/INFO]: [ELCI] Starting output thread!
+[01:42:43] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61686.
+[01:42:47] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61689.
+[01:42:47] [Thread-92/INFO]: [ELCI] Starting output thread!
+[01:42:47] [Thread-91/INFO]: [ELCI] Starting input thread
+[01:42:48] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61689.
+[01:42:57] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61693.
+[01:42:57] [Thread-93/INFO]: [ELCI] Starting input thread
+[01:42:57] [Thread-94/INFO]: [ELCI] Starting output thread!
+[01:42:58] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61693.
+[01:43:06] [Thread-98/INFO]: [ELCI] Starting output thread!
+[01:43:06] [Thread-97/INFO]: [ELCI] Starting input thread
+[01:43:06] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61694.
+[01:43:07] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61694.
+[01:43:50] [Thread-99/INFO]: [ELCI] Starting input thread
+[01:43:50] [Thread-100/INFO]: [ELCI] Starting output thread!
+[01:43:50] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61714.
+[01:43:51] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61714.
+[01:44:09] [Thread-101/INFO]: [ELCI] Starting input thread
+[01:44:09] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61717.
+[01:44:09] [Thread-102/INFO]: [ELCI] Starting output thread!
+[01:44:10] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61717.
+[01:44:32] [Thread-103/INFO]: [ELCI] Starting input thread
+[01:44:32] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:61735.
+[01:44:32] [Thread-104/INFO]: [ELCI] Starting output thread!
+[01:44:33] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:61735.
+[01:59:04] [Thread-107/INFO]: [ELCI] Starting output thread!
+[01:59:04] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:62010.
+[01:59:04] [Thread-106/INFO]: [ELCI] Starting input thread
+[01:59:05] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:62010.
+[02:00:34] [Thread-110/INFO]: [ELCI] Starting output thread!
+[02:00:34] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:62052.
+[02:00:34] [Thread-109/INFO]: [ELCI] Starting input thread
+[02:00:35] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:62052.
+[02:05:25] [Thread-9/INFO]: [ELCI] Opened connection to/127.0.0.1:62134.
+[02:05:25] [Thread-113/INFO]: [ELCI] Starting output thread!
+[02:05:25] [Thread-112/INFO]: [ELCI] Starting input thread
+[02:05:25] [Server thread/INFO]: [ELCI] Closed connection to/127.0.0.1:62134.
+[02:13:10] [Thread-2/INFO]: Stopping server
+[02:13:10] [Server console handler/ERROR]: Exception handling console input
+java.io.IOException: Input/output error
+	at java.io.FileInputStream.readBytes(Native Method) ~[?:?]
+	at java.io.FileInputStream.read(FileInputStream.java:276) ~[?:?]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:244) ~[?:?]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:263) ~[?:?]
+	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:169) ~[jline-2.12.1.jar:?]
+	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:137) ~[jline-2.12.1.jar:?]
+	at jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:246) ~[jline-2.12.1.jar:?]
+	at jline.internal.InputStreamReader.read(InputStreamReader.java:261) ~[jline-2.12.1.jar:?]
+	at jline.internal.InputStreamReader.read(InputStreamReader.java:198) ~[jline-2.12.1.jar:?]
+	at jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2145) ~[jline-2.12.1.jar:?]
+	at jline.console.ConsoleReader.readLine(ConsoleReader.java:2349) ~[jline-2.12.1.jar:?]
+	at net.minecraft.server.dedicated.DedicatedServer$1.run(DedicatedServer.java:117) ~[spigot-1.19.4-R0.1-SNAPSHOT.jar:3714-Spigot-b31949f-3ae9069]

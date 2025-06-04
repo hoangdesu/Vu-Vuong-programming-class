@@ -24,6 +24,14 @@ void MinecraftConnection::doCommand(const std::string& command) {
   _conn->send_command("player.doCommand", command);
 }
 
+void MinecraftConnection::drawLine(int length) { 
+  Coordinate pos = getPlayerPosition();
+  for (int i = 0; i < length; i++) {
+    pos.x += 1;
+    setBlock(pos, Blocks::GRANITE);
+  }
+}
+
 void MinecraftConnection::setPlayerPosition(const Coordinate& pos) {
   _conn->send_command("player.setPos", pos.x, pos.y, pos.z);
 }

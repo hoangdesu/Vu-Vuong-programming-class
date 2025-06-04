@@ -63,6 +63,13 @@ public:
   void doCommand(const std::string& command);
 
   /**
+   * @brief Draw a line from current position =))
+   *
+   * @param length How many blocks to draw
+   */
+  void drawLine(int length);
+
+  /**
    * @brief Sets player pos (block pos of lower half of playermodel) to
    * specified Coordinate
    *

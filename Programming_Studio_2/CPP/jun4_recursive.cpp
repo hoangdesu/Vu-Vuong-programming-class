@@ -41,14 +41,31 @@ int main(void) {
     // count(2, 10)
     // 2, 3, 4, 5 ... 10
 
-    recursive_factorial(int a)
-    int recursive_factorial(5) -> 120
+
+    // hi(1)
+    // 1 -> 10
+    // 1. Hi
+    // 2. Hi
+    // ...
+    // 10. Hi
+
+
+    // 2.
+    // recursive_factorial(int a)
+    // int recursive_factorial(5) -> 120
 
 
     // factorial !
     // 5! = 5x4x3x2x1 = 120
 
     cout << "5! = " << factorial(5) << endl;
+
+    // hello(5)
+    // 1. hello
+    // 2. hello
+    // 3
+
+
 
     
     return 0;

@@ -3,8 +3,8 @@
 #include <deque>
 
 
-bool ReadBasePoint(mcpp::Coordinate& start){
-    std::string input="";
+bool ReadBasePoint(mcpp::Coordinate& start) {
+    std::string input = "";
     bool success = true;
 
     mcpp::MinecraftConnection mc;
@@ -19,6 +19,11 @@ bool ReadBasePoint(mcpp::Coordinate& start){
 
     if(success){
         start = mc.getPlayerPosition() + mcpp::Coordinate(1,0,1);
+        // check test mode
+        // if (mode == 1) {
+            
+        // }
+        std::cout << ">> Start = " << start << std::endl;
     }else{
         std::cout << "Basepoint is not correct." << std::endl;
         std::cin.clear();

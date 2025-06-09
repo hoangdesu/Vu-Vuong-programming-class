@@ -6,7 +6,7 @@
 
 #include "menuUtils.h"
 #include "MazeReadWriteUtils.h"
-#include "mazeUtils.h"
+#include "Maze.h"
 
 #define NORMAL_MODE 0
 #define TESTING_MODE 1
@@ -42,6 +42,7 @@ int main(int argc, char **argv)
             if (input == "-testmode")
             {
                 mode = TESTING_MODE;
+                cout << ">> Running in TESTING MODE" << endl;
             }
             else
             {
@@ -61,6 +62,9 @@ int main(int argc, char **argv)
     printStartText();
 
     // std::shared_ptr<Maze> maze = nullptr;
+
+    // create a global shared object
+    Maze maze;
 
     // State machine for menu
     while (curState != ST_Exit)
@@ -87,21 +91,21 @@ int main(int argc, char **argv)
                                                 //  added to make sure the starter code compiles with
                                                 //  all flags
 
-                // testing...
-                std::vector<std::vector<char>> mazeStructure;
-                mcpp::Coordinate basePoint(0, 0, 0);
-                bool success = readMaze(mazeStructure, basePoint);
-                if (success)
-                {
-                    std::cout << "Maze read successfully" << std::endl;
-                    curState = ST_Main;
-                    // printMaze(mazeStructure);
-                    buildMaze(mazeStructure);
-                }
-                else
-                {
-                    std::cout << "Error Reading Maze. Try again." << std::endl;
-                }
+                // // testing...
+                // std::vector<std::vector<char>> mazeStructure;
+                // mcpp::Coordinate basePoint(0, 0, 0);
+                // bool success = readMaze(mazeStructure, basePoint);
+                // if (success)
+                // {
+                //     std::cout << "Maze read successfully" << std::endl;
+                //     curState = ST_Main;
+                //     // printMaze(mazeStructure);
+                //     // maze.buildMaze(mazeStructure);
+                // }
+                // else
+                // {
+                //     std::cout << "Error Reading Maze. Try again." << std::endl;
+                // }
             }
             else if (menuItem == 3)
             {
@@ -138,11 +142,36 @@ int main(int argc, char **argv)
                 std::vector<std::vector<char>> mazeStructure;
                 mcpp::Coordinate basePoint(0, 0, 0);
                 bool success = readMaze(mazeStructure, basePoint);
+
                 if (success)
                 {
                     std::cout << "Maze read successfully" << std::endl;
                     curState = ST_Main;
                     printMaze(mazeStructure);
+                    
+                    maze.build(mazeStructure);
+                    bool isolatedOK = maze.validateIsolations();
+                    // bool loopsOK = maze.validateLoops();
+
+                    cout << "isolatedOK: " << isolatedOK << endl;
+
+                    // if not ok: maze.fixIsolations()
+                    
+                    // if (!isolatedOK && !loopsOK) 
+                    // {
+                    //     cout << "Errors detected. Would you like to automatically fix them? (y/n)";
+                    //     // ...
+                    // }
+                    // 1. fix isolation
+                    // maze.fixIsolations();
+                    
+                    // // 2. fix loops
+                    // maze.fixLoops();
+                    
+                    // // 3. fix entrances
+                    // maze.fix();
+                    
+
                 }
                 else
                 {
@@ -178,6 +207,8 @@ int main(int argc, char **argv)
             {
                 // Solve Manually
                 std::cout << "TODO: Not implemented yet." << std::endl;
+                // printMaze(maze.getMaze());
+                maze.print(); //  test
             }
             else if (menuItem == 2)
             {

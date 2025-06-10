@@ -24,6 +24,7 @@ using namespace std;
 class Maze {
     private:
         vector<vector<char>> maze;
+        vector<vector<char>> floodedMaze;
     
     public:
         void build(vector<vector<char>>);
@@ -31,4 +32,5 @@ class Maze {
         void print();
 
         bool validateIsolations();
+        void fixIsolations();
 };

@@ -29,6 +29,7 @@ int main(int argc, char **argv)
     // MazeUtil mazeUtils;
     // mazeUtils.maze
 
+    // read and parse program arguments
     try
     {
         // Read the mode
@@ -62,6 +63,17 @@ int main(int argc, char **argv)
     printStartText();
 
     // std::shared_ptr<Maze> maze = nullptr;
+
+    // TODO: create a shared instance of mc
+    // mcpp::MinecraftConnection mc;
+
+    // if (mc == nullptr)
+    // {
+    //     std::cerr << "Error: server is not running." << endl;
+    //     return 1;
+    // }
+
+    // export mc to global scope
 
     // create a global shared object
     Maze maze;
@@ -148,7 +160,7 @@ int main(int argc, char **argv)
                     std::cout << "Maze read successfully" << std::endl;
                     curState = ST_Main;
                     printMaze(mazeStructure);
-                    
+
                     maze.build(mazeStructure);
                     bool isolatedOK = maze.validateIsolations();
                     // bool loopsOK = maze.validateLoops();
@@ -156,22 +168,35 @@ int main(int argc, char **argv)
                     cout << "isolatedOK: " << isolatedOK << endl;
 
                     // if not ok: maze.fixIsolations()
-                    
-                    // if (!isolatedOK && !loopsOK) 
+                    if (!isolatedOK)
+                    {
+                        maze.fixIsolations();
+                        // isolatedOK = maze.validateIsolations();
+                        cout << "\nAFTER FIX: isolatedOK: " << isolatedOK << endl;
+
+                        for (vector<char> row : maze.getMaze())
+                        {
+                            for (char c : row)
+                            {
+                                cout << c << " ";
+                            }
+                            cout << endl;
+                        }
+                    }
+
+                    // if (!isolatedOK && !loopsOK)
                     // {
                     //     cout << "Errors detected. Would you like to automatically fix them? (y/n)";
                     //     // ...
                     // }
                     // 1. fix isolation
                     // maze.fixIsolations();
-                    
+
                     // // 2. fix loops
                     // maze.fixLoops();
-                    
+
                     // // 3. fix entrances
                     // maze.fix();
-                    
-
                 }
                 else
                 {
@@ -183,7 +208,6 @@ int main(int argc, char **argv)
                 // TODO: Generating random maze
                 //  std::cout << "TODO: Not implemented yet." << std::endl;
                 //  buildMaze(mazestr)
-
             }
             else if (menuItem == 3)
             {

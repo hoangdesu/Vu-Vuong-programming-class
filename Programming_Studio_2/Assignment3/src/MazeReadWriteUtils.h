@@ -2,11 +2,13 @@
 #include "mcpp/mcpp.h"
 #include <deque>
 
+// from main inject mc; pseudo code
 
 bool ReadBasePoint(mcpp::Coordinate& start) {
     std::string input = "";
     bool success = true;
 
+    // TODO: REALLY BAD! LATER USE SINGLETON + DEPENDENCY INJECTION TO SHARE mc INSTANCE AMONG THE CLASSES
     mcpp::MinecraftConnection mc;
 
     std::cout << "In Minecraft, navigate to where you need the maze" << std::endl;
@@ -61,7 +63,7 @@ bool readLengthWidth(unsigned int& xlength, unsigned int& zlength){
 
 }
 
-bool readMaze(std::vector< std::vector<char> >& maze, mcpp::Coordinate& basePoint){
+bool readMaze(std::vector< std::vector<char> >& maze, mcpp::Coordinate& basePoint) {
 
     unsigned int xlength = 0;
     unsigned int zlength = 0;

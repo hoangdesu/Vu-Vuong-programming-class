@@ -42,7 +42,7 @@ void Maze::print()
 
 // HELPERS
 
-void dfs(vector<vector<char>> &maze, int row, int col)
+void dfs(vector<vector<char>> &maze, size_t row, size_t col)
 {
 
     // Base case: check boundary conditions and wrong char
@@ -116,8 +116,9 @@ bool Maze::validateIsolations()
     // printMaze(copy);
 }
 
-void Maze::fixIsolations() {
-    cout << "> before fixing isolations..." << endl;  
+void Maze::fixIsolations()
+{
+    cout << "> before fixing isolations..." << endl;
 
     for (vector<char> row : this->floodedMaze)
     {
@@ -130,77 +131,62 @@ void Maze::fixIsolations() {
 
     // fixing...
 
-    for (int i = 1; i < this->floodedMaze.size() - 1; i++)
+    for (size_t i = 1; i < this->floodedMaze.size() - 1; i++)
     {
-        bool cont = true;
-        for (int j = 1; j < this->floodedMaze[i].size() - 1; j++)
+        for (size_t j = 1; j < this->floodedMaze[i].size() - 1; j++)
         {
             if (this->floodedMaze[i][j] == '.')
             {
                 // TODO: check if i and j are in bound
                 // ...
-                // NOTE: current not correct yet
-                if (i-1 < 0 || i+1 >= this->floodedMaze.size() - 1 || j-1 < 0 || j+2 >= this->floodedMaze[i].size() - 1)
-                {
-                    continue;
-                }
+                // NOTE: currently not correct yet
+                // if (i-2 < 0 || i+2 >= this->floodedMaze.size() - 1 || j-2 < 0 || j+2 >= this->floodedMaze[i].size() - 1)
+                // {
+                //     continue;
+                // }
 
                 // int x = -1, y = -1;
 
                 // check if TOP wall is breakable
-                if (this->floodedMaze[i-2][j] == 'O')
+                if (i - 2 >= 0 && this->floodedMaze[i - 2][j] == 'O')
                 {
                     // replacing the wall from ACTUAL MAZE from 'x' to '.'
-                    this->maze[i-1][j] = '.';
+                    this->maze[i - 1][j] = '.';
                     // x = i-1;
                     // y = j;
+                    break;
                 }
 
                 // check if BOTTOM wall is breakable
-                else if (this->floodedMaze[i+2][j] == 'O')
+                else if (i + 2 < this->floodedMaze.size() && this->floodedMaze[i + 2][j] == 'O')
                 {
                     // replacing the wall from ACTUAL MAZE from 'x' to '.'
-                    this->maze[i+1][j] = '.';
+                    this->maze[i + 1][j] = '.';
                     // x = i+1;
                     // y = j;
+                    break;
                 }
 
                 // check if RIGHT wall is breakable
-                else if (this->floodedMaze[i][j+2] == 'O')
+                else if (j + 2 < floodedMaze[i].size() && this->floodedMaze[i][j + 2] == 'O')
                 {
                     // replacing the wall from ACTUAL MAZE from 'x' to '.'
-                    this->maze[i][j+1] = '.';
-                    // x = i;
-                    // y = j+1;
+                    this->maze[i][j + 1] = '.';
+                    break;
                 }
 
                 // check if LEFT wall is breakable
-                else if (this->floodedMaze[i][j-2] == 'O')
+                else if (j - 2 >= 0 && this->floodedMaze[i][j - 2] == 'O')
                 {
                     // replacing the wall from ACTUAL MAZE from 'x' to '.'
-                    this->maze[i][j-1] = '.';
-                    // x = i;
-                    // x = i-1;
-                }
-
-
-                // TODO: check if the maze STILL needs to be fixed
-                // validate maze -> flood fill again
-                // floodFill(this->maze, x, y);
-
-                if (this->validateIsolations())
-                {
-                    cont = false;
+                    this->maze[i][j - 1] = '.';
                     break;
                 }
             }
-
-            if (!cont) break;
-
         }
     }
 
-    cout << "> after fixing isolations..." << endl;  
+    cout << "> after fixing isolations..." << endl;
 
     for (vector<char> row : this->maze)
     {
@@ -210,5 +196,10 @@ void Maze::fixIsolations() {
         }
         cout << endl;
     }
+}
 
+void Maze::draw()
+{
+    mcpp::Coordinate pos = this->mc.getPlayerPosition();
+    cout << pos;
 }

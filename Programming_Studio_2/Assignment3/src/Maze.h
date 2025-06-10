@@ -25,12 +25,22 @@ class Maze {
     private:
         vector<vector<char>> maze;
         vector<vector<char>> floodedMaze;
+        mcpp::MinecraftConnection mc; // TODO move to main
     
     public:
+        // Maze(mcpp::MinecraftConnection mc) {
+        //     this->mc = mc;
+        //     cout << "Connected to server!\n";
+        // }
+
         void build(vector<vector<char>>);
         vector<vector<char>>& getMaze();
         void print();
 
+        // validation
         bool validateIsolations();
         void fixIsolations();
+
+        // 
+        void draw();
 };

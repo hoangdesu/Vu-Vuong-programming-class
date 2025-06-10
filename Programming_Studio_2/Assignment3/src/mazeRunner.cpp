@@ -118,6 +118,8 @@ int main(int argc, char **argv)
                 // {
                 //     std::cout << "Error Reading Maze. Try again." << std::endl;
                 // }
+
+                maze.draw();
             }
             else if (menuItem == 3)
             {
@@ -232,7 +234,8 @@ int main(int argc, char **argv)
                 // Solve Manually
                 std::cout << "TODO: Not implemented yet." << std::endl;
                 // printMaze(maze.getMaze());
-                maze.print(); //  test
+                // maze.print(); //  test
+                
             }
             else if (menuItem == 2)
             {

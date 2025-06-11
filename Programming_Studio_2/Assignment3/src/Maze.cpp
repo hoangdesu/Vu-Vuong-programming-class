@@ -1,8 +1,8 @@
+#pragma once
 #include <iostream>
 #include <vector>
 
 #include "Maze.h"
-// #include "MazeReadWriteUtils.h"
 
 #include <mcpp/mcpp.h>
 
@@ -85,9 +85,18 @@ bool Maze::validateIsolations()
 {
     vector<vector<char>> copy = this->maze;
 
-    // TODO: check if char is a dot AND NOT ISOLATED before calling floodfill
-    // if ()
-    floodFill(copy, 1, 4);
+    // check if char is a dot AND NOT ISOLATED before calling floodfill
+    for (unsigned int i = 0; i < copy.size(); i++) {
+        for (unsigned int j = 0; j < copy[i].size(); j++) {
+            if (copy[i][j] == '.') {
+                floodFill(copy, j, j);
+                break;
+            }
+        }
+    }
+
+    // while c != '.':
+    //     random i j
 
     this->floodedMaze = copy;
 
@@ -202,4 +211,28 @@ void Maze::draw()
 {
     mcpp::Coordinate pos = this->mc.getPlayerPosition();
     cout << pos;
+
+    // i: 0 
+    // j: 0 -> size[i]-1
+
+    // i: 0 -> size-1
+
+    cout << "Coordinates of the entrance: ";
+
+    // int i = 0, j = 0;
+
+    // while (true) {
+    //     if (this->maze[i][j] == '.') {
+    //         break;
+    //     }
+        
+    //     if (j < maze[i].size() - 1) {
+    //         j++;
+    //     }
+
+    //     this->entranceIndices.i = i;
+    //     this->entranceIndices.j = j;
+    // }
+
+    // check entrance's position, draw entrance relatively from the origin
 }

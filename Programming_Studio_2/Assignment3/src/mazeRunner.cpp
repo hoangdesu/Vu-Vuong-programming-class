@@ -64,19 +64,8 @@ int main(int argc, char **argv)
 
     // std::shared_ptr<Maze> maze = nullptr;
 
-    // TODO: create a shared instance of mc
-    // mcpp::MinecraftConnection mc;
-
-    // if (mc == nullptr)
-    // {
-    //     std::cerr << "Error: server is not running." << endl;
-    //     return 1;
-    // }
-
-    // export mc to global scope
-
-    // create a global shared object
-    Maze maze;
+    mcpp::MinecraftConnection mc;
+    Maze maze(mc);
 
     // State machine for menu
     while (curState != ST_Exit)

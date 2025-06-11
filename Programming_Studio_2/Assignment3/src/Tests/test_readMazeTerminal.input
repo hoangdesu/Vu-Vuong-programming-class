@@ -23,16 +23,17 @@ x.....x
 x.xxxxx
 x..x..x
 xxxxxxx
-
-xxxxx.x
-xx.x..x
-xxx.x.x
-x.....x
-x.x.xxx
-x.....x
-x.xxxxx
-x.....x
-xxxxxxx
+   
+   O     _
+    xxxxx.x
+    xx.x..x
+    xxx.x.x
+    x.....x
+    x.x.xxx
+    x.....x
+    x.xxxxx
+    x.....x
+    xxxxxxx
 
 
 xxxxx.x
@@ -40,7 +41,7 @@ x..x..x
 xxx.x.x
 x.....x
 x.x.xxx
-x.....x
+x......_
 x.xxxxx
 x.....x
 xxxxxxx
@@ -117,3 +118,5 @@ x.....x
 x.xxxxx
 x..x..x
 xxxxxxx
+
+

@@ -21,23 +21,31 @@ using namespace std;
 //     cout << "building maze...";
 // }
 
+struct Entrance {
+    int i;
+    int j;
+};
+
 class Maze {
     private:
         vector<vector<char>> maze;
         vector<vector<char>> floodedMaze;
-        mcpp::MinecraftConnection mc; // TODO move to main
+
+        mcpp::MinecraftConnection& mc; 
+        mcpp::Coordinate entrance;
+
+        Entrance entranceIndices;
+
     
     public:
-        // Maze(mcpp::MinecraftConnection mc) {
-        //     this->mc = mc;
-        //     cout << "Connected to server!\n";
-        // }
+        // constructor
+        Maze(mcpp::MinecraftConnection& mc) : mc(mc) {}
 
         void build(vector<vector<char>>);
         vector<vector<char>>& getMaze();
         void print();
 
-        // validation
+        // validation methods
         bool validateIsolations();
         void fixIsolations();
 

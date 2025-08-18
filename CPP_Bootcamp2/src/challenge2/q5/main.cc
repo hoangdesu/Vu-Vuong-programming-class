@@ -1,0 +1,2 @@
+hasConsecutiveChars
+duplicatedWords

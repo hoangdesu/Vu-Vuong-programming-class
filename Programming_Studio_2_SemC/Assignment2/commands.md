@@ -1,0 +1,1 @@
+laser -a grass_triangle.asm && lc3 grass_triangle.obj

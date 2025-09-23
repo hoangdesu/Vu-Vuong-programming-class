@@ -49,4 +49,3 @@ Z_DIST .FILL #10
 GRASS   .FILL #2
 
 .END
-

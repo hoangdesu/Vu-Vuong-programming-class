@@ -4,7 +4,7 @@
 AND R0, R0, #0 ; x
 AND R1, R1, #0 ; y
 AND R2, R2, #0 ; z
-AND R3, R3, #0 ; block = stone
+AND R3, R3, #0 ; 
 AND R4, R4, #0 ; x loop counter
 AND R5, R5, #0 ; z loop counter
 AND R6, R6, #0 ; 

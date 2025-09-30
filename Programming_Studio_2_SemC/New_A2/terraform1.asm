@@ -152,7 +152,7 @@ GETH
 ; Store the upper bound height from GETH
 ST R1, TARGET_HEIGHT
 
-; Replace all blocks from player Y to GETH height with air block in 3x3 area
+; Clear blocks above target height in 3x3 area
 ; Initialize X offset counter (-1 to 1)
 AND R3, R3, #0
 ADD R3, R3, #-1
@@ -185,11 +185,24 @@ X_CLEAR_LOOP
         LD R2, PLAYER_Z
         ADD R2, R2, R5  ; Z = player_z + z_offset
 
-        ; Store X offset for restoration (use memory location)
-        ST R3, CURRENT_HEIGHT  ; Temporarily store X offset
+        ; Get the actual height at this position
+        GETH            ; getHeight(R0, R2) -> R1
+        ST R1, CURRENT_HEIGHT
 
-        ; Start Y from player position
-        LD R1, PLAYER_Y
+        ; Store X offset for restoration
+        ST R3, X_OFFSET_TEMP
+
+        ; Compare this position's height with target height
+        LD R4, TARGET_HEIGHT
+        LD R1, CURRENT_HEIGHT
+        NOT R6, R4      ; R6 = -target_height
+        ADD R6, R6, #1
+        ADD R6, R1, R6  ; R6 = current_height - target_height
+
+        BRnz NEXT_POSITION  ; If current_height <= target, skip cutting
+
+        ; Cut down: start from current height and go down to target+1
+        LD R1, CURRENT_HEIGHT
 
         Y_CLEAR_LOOP
             ; Check if we've reached target height
@@ -197,22 +210,26 @@ X_CLEAR_LOOP
             NOT R6, R6
             ADD R6, R6, #1      ; R6 = -target_height
             ADD R6, R1, R6      ; R6 = current_y - target_height
-            BRp Y_CLEAR_DONE    ; If current_y > target, done with this column
+            BRnz Y_CLEAR_DONE   ; If current_y <= target, done with this column
 
             ; Place air block (ID #0)
             AND R7, R7, #0      ; Block ID = 0 (air)
-            ADD R7, R7, #0      ; R7 = 0
-            ; Move block ID to R3 for SETB
-            ADD R3, R7, #0
+            ADD R3, R7, #0      ; Move to R3 for SETB
             SETB                ; setBlock(R0, R1, R2, R3)
-            ; Restore R3 (X offset) from memory
-            LD R3, CURRENT_HEIGHT
 
-            ; Move to next Y level
-            ADD R1, R1, #1
+            ; Restore R3 (X offset) from memory
+            LD R3, X_OFFSET_TEMP
+
+            ; Move down one Y level
+            ADD R1, R1, #-1
             BR Y_CLEAR_LOOP
 
         Y_CLEAR_DONE
+            ADD R0, R0, #0      ; No-op instruction
+
+        NEXT_POSITION
+            ; Restore R3 for loop continuation
+            LD R3, X_OFFSET_TEMP
             ; Increment Z offset
             ADD R5, R5, #1
             BR Z_CLEAR_LOOP

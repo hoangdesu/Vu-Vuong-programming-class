@@ -9,6 +9,28 @@ public abstract class ServiceOption {
 		this.vendor = vendor;
 	}
 	
-	public abstract String getDescription();
+	public abstract String getDescription() {
+
+	};
 	public abstract double getPrice();
+}
+
+
+interface Species {
+
+	void eat();
+}
+
+class Human implements Species {
+
+	void eat() {
+
+	}
+}
+
+class Dog implements Species {
+
+	void eat() {
+		
+	}
 }

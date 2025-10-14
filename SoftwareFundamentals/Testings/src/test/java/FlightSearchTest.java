@@ -6,7 +6,7 @@ public class FlightSearchTest {
     FlightSearch flightSearch = new FlightSearch();
 
     @Test
-    void testTotalPassengers() {
+    void testValidTotalPassengers() {
 //        boolean s1 = flightSearch.runFlightSearch(
 //                "",
 //                "doh",
@@ -35,7 +35,7 @@ public class FlightSearchTest {
 
 
     @Test
-    void testTotalPassengersOver9() {
+    void testInvalidTotalPassengers() {
         assertFalse(flightSearch.runFlightSearch(
                 "",
                 "doh",
@@ -62,6 +62,11 @@ public class FlightSearchTest {
                 2,
                 0
         ));
+    }
+
+    @Test
+    void testInvalidReturnDateWithWrongLeapYear() {
+
     }
 
 }

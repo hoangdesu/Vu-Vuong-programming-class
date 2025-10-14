@@ -5,10 +5,10 @@ public class MainFlightSearch {
         FlightSearch flightSearch = new FlightSearch();
 
         boolean search1 = flightSearch.runFlightSearch(
-                "",
+                "01/11/2025",
                 "doh",
-                true,
-                "",
+                false,
+                "29/02/2028",
                 "mel",
                 "economy",
                 1,
@@ -17,7 +17,6 @@ public class MainFlightSearch {
         );
 
         System.out.println(search1);
-
 
     }
 }

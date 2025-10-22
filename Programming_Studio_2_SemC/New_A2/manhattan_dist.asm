@@ -60,7 +60,8 @@ ADD R6, R6, R5
 REG
 
 LD R7, GOAL_DIST
-NOT R7, R7 ; R7 = -R7 (= -10)
+NOT R7, R7 ; R7 = NOT(R7) = -R7 (= -11) => (not equal to 10 due to Two's Complement rule)
+ADD R7, R7, #1 ; add 1 after flipping the bit
 ADD R7, R6, R7 ; R7: signal to branch
 
 BRnz IS_INBOUND
@@ -83,11 +84,11 @@ CHAT
 HALT
 
 ; Note: Please do not change the names of the constants below
-G_X .FILL #7
-G_Y .FILL #-8
-G_Z .FILL #5
+G_X .FILL #120
+G_Y .FILL #100
+G_Z .FILL #60
 GOAL_DIST .FILL #10
 
-INBOUNDS .STRINGZ "The player is within distance of the goal\n"
-OUTBOUNDS .STRINGZ "The player is outside the goal bounds\n"
+INBOUNDS .STRINGZ "The player is within distance of the goal"
+OUTBOUNDS .STRINGZ "The player is outside the goal bounds"
 .END

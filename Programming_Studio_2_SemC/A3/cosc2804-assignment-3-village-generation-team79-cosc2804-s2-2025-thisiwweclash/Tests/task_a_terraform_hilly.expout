@@ -1,0 +1,16 @@
+Student 1 - Task A: [Subhash Reddy Syamakuri] - [s4055597] - [24subs]
+Student 2 - Task B: [Name] - [Number] - [GitHub Username]
+Student 3 - Task C: [Name] - [Number] - [GitHub Username]
+There are 1 command line arguments.
+./gen-village
+Command Line Arguments:
+	 Location (x,z) : (250, 250)
+	 Village Size : 50
+	 Plot Border : 8
+	 Seed : 321
+	 Testmode : 1
+Task A: Finding Plots and Terraforming
+	 Finding plots...
+	 Found 1 valid plot(s) inside walls
+	 Terraforming plots...
+	 Terraforming complete.

@@ -1,6 +1,3 @@
 [submodule "Programming_Studio_2/PS2/mcpp"]
 	path = Programming_Studio_2/PS2/mcpp
 	url = https://github.com/rozukke/mcpp
-[submodule "Programming_Studio_2_SemC/A3/cosc2804-assignment-3-village-generation-team79-cosc2804-s2-2025-thisiwweclash"]
-	path = Programming_Studio_2_SemC/A3/cosc2804-assignment-3-village-generation-team79-cosc2804-s2-2025-thisiwweclash
-	url = git@github.com:rmit-computing-technologies/cosc2804-assignment-3-village-generation-team79-cosc2804-s2-2025-thisiwweclash.git

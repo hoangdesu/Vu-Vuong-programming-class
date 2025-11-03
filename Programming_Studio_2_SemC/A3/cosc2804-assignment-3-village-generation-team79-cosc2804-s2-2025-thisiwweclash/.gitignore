@@ -1,0 +1,7 @@
+dev/
+*.py
+*.o
+gen-village
+
+tasks
+.DS_Store

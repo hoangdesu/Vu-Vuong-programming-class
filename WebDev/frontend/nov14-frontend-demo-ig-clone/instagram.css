@@ -1,0 +1,21 @@
+#info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    /* border: 2px solid pink; */
+}
+
+
+#profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+
+#follow-btn:hover {
+    background-color: aqua;
+}

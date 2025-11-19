@@ -1,0 +1,73 @@
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green {
+    background-color: green;
+    height: 200px;
+}
+
+.blue {
+    background-color: pink;
+}
+
+/* CSS: Cascading Style Sheet */
+/* Overwrite the styles, not the class */
+
+.orange {
+    background-color: red;
+}
+
+.orange-box {
+    background-color: orange;
+    width: 100px;
+    height: 100px;
+    align-self: flex-end;
+}
+
+.box-container {
+    margin-bottom: 50px;
+}
+
+#box-container {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+
+    /* main axis */
+    justify-content: center;
+    gap: 50px;
+
+    /* cross-axis */
+    align-items: baseline;
+
+    border: 2px solid pink;
+}
+
+#box-container-scroll {
+    border: 2px solid blue;
+    height: 350px;
+    overflow-y: scroll;
+}
+
+#box-container-column {
+    border: 2px solid black;
+    height: 800px;
+
+    display: flex;
+    flex-direction: column;
+
+    /* main axis: vertical */
+    justify-content: space-between; 
+
+    align-items: center
+}
+

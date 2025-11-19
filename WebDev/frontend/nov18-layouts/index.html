@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layouts.css">
+    <title>Layouts</title>
+
+    <!-- In-file style -->
+    <style>
+        .blue {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Layouts</h1>
+
+    <h2>Flexbox</h2>
+
+    <div id="box-container" class="box-container">
+        <div class="box red">red</div>
+        <div class="box green">green</div>
+        <div class="box blue" style="background-color: blue;">blue</div>
+        <div class="orange-box red"></div>
+    </div>
+
+    <div id="box-container-scroll" class="box-container">
+        <div class="box red">red</div>
+        <div class="box green">green</div>
+        <div class="box blue" style="background-color: blue;">blue</div>
+        <div class="orange-box red"></div>
+    </div>
+
+    <div id="box-container-column" class="box-container">
+        <div class="box red">red</div>
+        <div class="box green">green</div>
+        <div class="box blue" style="background-color: blue;">blue</div>
+        <div class="orange-box red" style="align-self: unset;"></div>
+    </div>
+
+    <h1>Order of priority</h1>
+    <p>inline > infile > outfile</p>
+
+    <h1>Block vs Inline elements</h1>
+    <!-- Blocks: h1, p, div, main... 
+        => use up all the horizontal space -->
+        <!-- display: block; -->
+    <!-- Inlines: button, img, span,... 
+        => use up ONLY the space it needs, to fit the content -->
+        <!-- display: inline; -->
+
+    <h1>this is h1</h1><h2>this is h2</h2><p>p tag over here</p>
+
+    <button>Button 1</button>
+    <button>Btn2</button>
+    <button>Button 3 with a very very long text over here =)))</button>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg/1200px-Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg" alt="" width="400px">
+    <img src="https://images.pistonheads.com/nimg/47438/blobid0.jpg" alt="" width="400px">
+
+    <div style="margin-bottom: 500px;"></div>
+</body>
+</html>

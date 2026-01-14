@@ -1,0 +1,41 @@
+#title {
+    text-align: center;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 80%;
+    margin: auto;
+}
+
+#search-input {
+    /* width: 80%; */
+    flex: 1;
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid rgb(77, 92, 236);
+}
+
+#search-btn {
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid rgb(77, 92, 236);
+}
+
+#products-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    /* nested selectors: available in 2025 */
+    img {
+        width: 100%;
+    }
+}

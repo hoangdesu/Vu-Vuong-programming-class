@@ -129,11 +129,11 @@ function hi(sbName) {
 
 hi('Vương');
 
-console.log(typeof hi);
+console.log(typeof hi); // function
 
-console.log(typeof null);
+console.log(typeof null); // object
 
-console.log(typeof undefined);
+console.log(typeof undefined); // undefined
 
 
 
@@ -149,9 +149,5 @@ console.log(typeof undefined);
 // 'string'
 // "string"
 // `string`: backtick -> string template literal
-
-
-
-
 
 

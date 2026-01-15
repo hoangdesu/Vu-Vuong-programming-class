@@ -2,6 +2,12 @@
     text-align: center;
 }
 
+/* show users that title can also be clicked on */
+#title:hover {
+    cursor: pointer;
+    color: red;
+}
+
 #search-form {
     display: flex;
     justify-content: center;
@@ -16,6 +22,7 @@
     padding: 12px;
     border-radius: 16px;
     border: 2px solid rgb(77, 92, 236);
+    font-size: 20px;
 }
 
 #search-btn {
@@ -35,6 +42,17 @@
 
 .product-card {
     /* nested selectors: available in 2025 */
+
+    border: 1px solid pink;
+    border-radius: 12px;
+    overflow: hidden;
+    /* padding: 20px; */
+
+    h2, p {
+        padding: 8px 20px; /* vertical horizontal */
+    }
+
+
     img {
         width: 100%;
     }

@@ -41,6 +41,11 @@ const products = [
         image: 'https://dlcdnwebimgs.asus.com/gain/079E19C9-5231-4717-A4ED-CEEFCA7964A8/w717/h525/fwebp',
         price: 700
     },
+    {
+        name: "Razer DeathAdder V4 Pro",
+        image: "https://cdn.hstatic.net/products/200000722513/imgi_72_deathadder-v4-pro-black_a0935bec304f4233b4bd0b2bb429588a_master.png",
+        price: 299.99
+    }
 ];
 
 
@@ -48,8 +53,11 @@ const products = [
 // DOM: Document Object Model
 
 
+
 // Dynamic rendering
 const productsContainer = document.querySelector('#products-container');
+
+// this render runs on initial load => no need to reset because productsContainer.innerHTML == '';
 
 // for ... of
 for (const product of products) {
@@ -70,15 +78,123 @@ for (const product of products) {
 }
 
 
-// TODO
 // const searchBtn = document.getElementById('search-btn') // no need # for id
+// console.log(searchBtn);
 
 // new method
-const searchBtn = document.querySelector('#search-btn'); // #id
+const searchForm = document.querySelector('#search-form'); // #id
+const searchInput = document.querySelector('#search-input'); // 
+
 
 // document.querySelector('#id')
 // document.querySelector('.class')
 // document.querySelector('element')
 
 
-console.log(searchBtn);
+// form's event 'submit' include 2 other events:
+//     - input's enter button
+//     - search button onClick
+
+// callback function:
+
+searchForm.addEventListener('submit', (event) => {
+    // prevent the form's default behavior of page reloading when submit
+    event.preventDefault();
+
+    // console.log('submitting the form...');
+
+    // extract the search query from the input box
+    // console.log('searching...', searchInput.value);
+    const searchQuery = searchInput.value;
+
+
+    // early return to catch special cases -> stop this function
+    if (!searchQuery) {
+        alert('Nothing to search!');
+        return;
+    }
+
+
+    // compare search query to the names we have inside each object in the products array
+    // using linear search algorithm    
+    // let foundProduct = null;
+
+    const foundProducts = [];
+
+    for (const product of products) {
+        // exact match -> not gonna work
+        // if (searchQuery === product.name) {
+
+        // partially match:
+        // is searchQuery a substring of product.name?
+        // must check both of them in the lowercase version
+        if (product.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+            // console.log('Found:', product.name);
+            // foundProduct = product; // this approach can only find 1 single product
+            // break;
+
+            foundProducts.push(product);
+        } 
+    }
+
+    if (foundProducts.length > 0) {
+        console.log('Found:', foundProducts);
+
+        // Reflect changes back to UI / re-render the screen
+
+        // clear the current products container
+        productsContainer.innerHTML = '';
+
+        for (const product of foundProducts) {
+
+            // build html template
+            const productCardHtml = `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>$${product.price}</p>
+                </div>
+            `;
+
+            // modify container's original html
+            productsContainer.innerHTML += productCardHtml;
+        }
+
+    } else {
+        console.log('NOT found:', searchQuery);
+        productsContainer.innerHTML = 'Nothing found...';
+    }
+    
+    // clear search input
+    // searchInput.value = '';
+});
+
+
+const title = document.querySelector('#title');
+title.addEventListener('click', () => {
+    // reset products container
+    productsContainer.innerHTML = '';
+
+    for (const product of products) {
+        // build html template
+        const productCardHtml = `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>$${product.price}</p>
+            </div>
+        `;
+
+        // modify container's original html
+        productsContainer.innerHTML += productCardHtml;
+    }
+
+    // clear search input
+    searchInput.value = '';
+});
+
+
+// let s1 = 'Gamesir Controller Cyclone 2'
+// let s2 = 'Cycl'
+
+// ? Check if s2 is a substring of s1

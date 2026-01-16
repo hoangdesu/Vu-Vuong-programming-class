@@ -4,47 +4,56 @@ const products = [
     {
         name: 'Wooting 60he+',
         image: 'https://static1.anpoimages.com/wordpress/wp-content/uploads/2024/07/wooting-60-he-product-tag-image.jpg',
-        price: 349
+        price: 349,
+        category: 'keyboard'
     },
     {   
         name: 'Razer Viper V3 Pro' ,
         image: 'https://m.media-amazon.com/images/I/61r9g7VtZaL.jpg',
-        price: 259
+        price: 259,
+        category: 'mouse'
     },
     {   
         name: "Moondrop Kato In-Ear Monitor",
         image: 'https://gadgetstudiobd.com/wp-content/uploads/2022/11/Screenshot_1-7-800x800.png',
-        price: 265
+        price: 265,
+        category: 'headphone'
     },
     {   
         name: 'Flydigi Apex 5',
         image: 'https://flydigi.net/cdn/shop/files/Flydigi-Apex-5_7.jpg?v=1758152259',
-        price: 240
+        price: 240,
+        category: 'controller'
     },
     {
         name: 'Gamesir Cyclone 2',
         image: 'https://www.gamesir.hk/cdn/shop/files/2_74840206-c007-4f89-9990-ab3e1f70f319.png?v=1731058234&width=360',
-        price: 89
+        price: 89,
+        category: 'controller'
     },
     {
         name: 'Akko MU01',
         image: 'https://en.akkogear.com/wp-content/uploads/2024/04/MU01-Mountain-Seclusion.png',
-        price: 185
+        price: 185,
+        category: 'keyboard'
     },
     {
         name: 'Kamvas 13 (Gen 3)',
         image: 'https://store-img.huion.com.cn/e/652/huion-kamvas-13-gen-3-pen-display-01.webp?x-oss-process=image/resize,m_lfit,w_600',
-        price: 359
+        price: 359,
+        category: 'monitor'
     },
     {
         name: 'ROG Strix XG27UCG',
         image: 'https://dlcdnwebimgs.asus.com/gain/079E19C9-5231-4717-A4ED-CEEFCA7964A8/w717/h525/fwebp',
-        price: 700
+        price: 700,
+        category: 'monitor'
     },
     {
         name: "Razer DeathAdder V4 Pro",
         image: "https://cdn.hstatic.net/products/200000722513/imgi_72_deathadder-v4-pro-black_a0935bec304f4233b4bd0b2bb429588a_master.png",
-        price: 299.99
+        price: 299.99,
+        category: 'mouse'
     }
 ];
 
@@ -198,3 +207,121 @@ title.addEventListener('click', () => {
 // let s2 = 'Cycl'
 
 // ? Check if s2 is a substring of s1
+
+
+// Filters
+const lowRangeSlider = document.querySelector('#low-range-slider');
+const lowRangeOutput = document.querySelector('#low-range-output');
+
+// input: 'change' vs 'input'
+lowRangeSlider.addEventListener('input', (evt) => {
+    // console.log('low range slider:', evt.target.value);
+    lowRangeOutput.textContent = `Low: $${evt.target.value}`;
+});
+
+
+const highRangeSlider = document.querySelector('#high-range-slider');
+const highRangeOutput = document.querySelector('#high-range-output');
+
+highRangeSlider.addEventListener('input', (evt) => {
+    // console.log('low range slider:', evt.target.value);
+    highRangeOutput.textContent = `High: $${evt.target.value}`;
+});
+
+
+const priceFilterBtn = document.querySelector('#price-filter-btn');
+
+
+// binding a function to an event
+// - using addEventListener('click'): priceFilterBtn.addEventListener('click', () => {});
+// - using .onclick attribute
+
+priceFilterBtn.onclick = () => {
+    // console.log('filtering...');
+
+    const lowRange = parseFloat(lowRangeSlider.value); // str -> float (number)
+    console.log('low range:', lowRange);
+    
+    // numbers will have blue color in browser console
+    // console.log(123);
+    // console.log(3.14);
+
+    const highRange = Number(highRangeSlider.value); // str -> number
+    console.log('high range:', highRange);
+    
+    // using array method. similar to for ... of
+    const filteredProducts = [];
+    products.forEach(prod => {
+        if (prod.price >= lowRange && prod.price <= highRange) {
+            // console.log(`$${prod.price} - ${prod.name}`);
+            filteredProducts.push(prod);
+        }
+    });
+
+
+    // update UI on the screen
+    // reset products container
+    productsContainer.innerHTML = '';
+
+    for (const product of filteredProducts) {
+        // build html template
+        const productCardHtml = `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>$${product.price}</p>
+            </div>
+        `;
+
+        // cannot add event listener on a string
+        // productCardHtml.addEventListener('click', () => {
+        //     console.log('clicked on product card');
+        // });
+
+        // modify container's original html
+        productsContainer.innerHTML += productCardHtml;
+    }
+};
+
+
+// Dynamically render the category buttons
+const categoriesFilters = document.querySelector('#category-filters');
+
+const existedCategories = [];
+
+products.forEach(prod => {
+    if (!existedCategories.includes(prod.category)) {
+        // remember the category that has appeared
+        existedCategories.push(prod.category);
+
+        // create element to show that category
+        const categoryBtn = document.createElement('button');
+
+        categoryBtn.textContent = prod.category;
+        categoriesFilters.append(categoryBtn);
+
+        categoryBtn.addEventListener('click', () => {
+            console.log(prod.category);
+
+            const filteredProducts = products.filter(filteringProd => prod.category === filteringProd.category);
+            console.log(filteredProducts);
+            
+            productsContainer.innerHTML = '';
+
+            for (const product of filteredProducts) {
+                // build html template
+                const productCardHtml = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h2>${product.name}</h2>
+                        <p>$${product.price}</p>
+                    </div>
+                `;
+
+                // modify container's original html
+                productsContainer.innerHTML += productCardHtml;
+            }
+        });      
+    }
+});
+

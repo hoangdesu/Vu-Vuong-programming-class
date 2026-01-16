@@ -15,9 +15,26 @@
     <h1 id="title">Vuong's Store</h1>
 
     <form action="" id="search-form">
+        <!-- <div> -->
         <input type="text" id="search-input" placeholder="Search by product name...">
         <button id="search-btn">Search</button>
+        <!-- </div> -->
     </form>
+
+    <div id="filters-container">
+        <output for="low-range-slider" id="low-range-output">Low: $0</output>
+        <input type="range" id="low-range-slider" min="0" max="700" value="0">
+
+        <input type="range" id="high-range-slider" min="0" max="700" value="700">
+        <output for="high-range-slider" id="high-range-output">High: $700</output>
+
+        <button id="price-filter-btn">Filter by price</button>
+    </div>
+
+    <div id="categories-container">
+        <h3>Filter by categories</h3>
+        <div id="category-filters"></div>
+    </div>
 
     <div id="products-container">
         <!-- sample template -->

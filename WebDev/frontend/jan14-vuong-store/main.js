@@ -50,7 +50,7 @@ const products = [
         category: 'monitor'
     },
     {
-        name: "Razer DeathAdder V4 Pro",
+        name: 'Razer DeathAdder V4 Pro',
         image: "https://cdn.hstatic.net/products/200000722513/imgi_72_deathadder-v4-pro-black_a0935bec304f4233b4bd0b2bb429588a_master.png",
         price: 299.99,
         category: 'mouse'
@@ -62,16 +62,17 @@ const products = [
 // DOM: Document Object Model
 
 
-
 // Dynamic rendering
 const productsContainer = document.querySelector('#products-container');
 
 // this render runs on initial load => no need to reset because productsContainer.innerHTML == '';
 
-// for ... of
-for (const product of products) {
+// traditional for-loop
 // for (let i = 0; i < products.length; i++) {
     // const product = products[i];
+
+// for ... of
+for (const product of products) {
 
     // build html template
     const productCardHtml = `
@@ -84,6 +85,10 @@ for (const product of products) {
 
     // modify container's original html
     productsContainer.innerHTML += productCardHtml;
+
+    // 'single-quote ${}'
+    // "double-quote ${}"
+    // `string-template literal ${}`
 }
 
 
@@ -236,6 +241,7 @@ const priceFilterBtn = document.querySelector('#price-filter-btn');
 // - using addEventListener('click'): priceFilterBtn.addEventListener('click', () => {});
 // - using .onclick attribute
 
+
 priceFilterBtn.onclick = () => {
     // console.log('filtering...');
 
@@ -250,13 +256,17 @@ priceFilterBtn.onclick = () => {
     console.log('high range:', highRange);
     
     // using array method. similar to for ... of
-    const filteredProducts = [];
-    products.forEach(prod => {
-        if (prod.price >= lowRange && prod.price <= highRange) {
-            // console.log(`$${prod.price} - ${prod.name}`);
-            filteredProducts.push(prod);
-        }
-    });
+    // const filteredProducts = [];
+    // products.forEach((prod) => {
+    //     if (prod.price >= lowRange && prod.price <= highRange) {
+    //         // console.log(`$${prod.price} - ${prod.name}`);
+    //         filteredProducts.push(prod);
+    //     }
+    // });
+
+
+    // using filter method
+    const filteredProducts = products.filter(prod => prod.price >= lowRange && prod.price <= highRange);
 
 
     // update UI on the screen
@@ -296,9 +306,7 @@ products.forEach(prod => {
 
         // create element to show that category
         const categoryBtn = document.createElement('button');
-
         categoryBtn.textContent = prod.category;
-        categoriesFilters.append(categoryBtn);
 
         categoryBtn.addEventListener('click', () => {
             console.log(prod.category);
@@ -322,6 +330,45 @@ products.forEach(prod => {
                 productsContainer.innerHTML += productCardHtml;
             }
         });      
+
+        categoriesFilters.append(categoryBtn);
     }
 });
 
+
+
+// Callback function
+
+const btnClickme = document.querySelector('#btn-clickme');
+
+
+// btnClickme.addEventListener('click', () => {
+//     alert('Sup!')
+// });
+
+// function onBtnClickmeClicked() {
+//     const name = prompt('Wats yo name doug');
+//     alert(`Sup ${name}!`);
+// }
+
+// only pass in callback function / function reference
+// btnClickme.addEventListener('click', onBtnClickmeClicked); // click -> onBtnClickmeClicked()
+
+
+// arrow function === annonymous function === lambda function
+
+btnClickme.addEventListener('click', () => {
+    const name = prompt('Wats yo name doug');
+    alert(`Sup ${name}!`);
+});
+
+
+// giao bai tap () {
+//     1. bài A
+//     2. bài C 
+// }
+
+// lesson ends -> lam bai tap
+// khi có time => lam bai tap ()
+
+// vuong.addEventListener('free time', doHomework);

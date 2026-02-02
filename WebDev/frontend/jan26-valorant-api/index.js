@@ -45,6 +45,11 @@ fetch('https://valorant-api.com/v1/agents')
             agentsContainer.innerHTML += agentHtmlTemplate;
         });
 
+    })
+    .catch(err => {
+        console.error('Failed to fetch agents :(', err);
+        
+        agentsContainer.innerHTML = '<p>Failed to fetch agents :((</p>'
     });
 
 

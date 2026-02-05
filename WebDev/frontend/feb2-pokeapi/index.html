@@ -9,21 +9,25 @@
 <body>
     <h1>Pokedex</h1>
 
+    <!-- form = [input, button] -->
     <form id="search-form">
         <input type="text" placeholder="Search Pokémon by name or id...">
         <button>Search</button>
     </form>
 
-    <button>Random: TODO</button>
+    <button id="btn-random">Random pokemon</button>
 
     <div id="pokemon-container">
+        <button id="back-btn" disabled>⬅️</button>
         <div class="pokemon-card">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwNey01Qqt8jxo4-SzM-jONowC40zERZxnPg&s" alt="Pokemon name">
             <p>#????</p>
             <h2>Who's that Pokemon?</h2>
         </div>
+        <button id="next-btn">➡️</button>
     </div>
     
+    <script src="feb5_random.js"></script>
     <script src="poke.js"></script>
 </body>
 </html>

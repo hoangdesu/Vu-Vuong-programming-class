@@ -1,0 +1,6 @@
+/* Visual feedback */
+
+#color-code:hover, #hex-text:hover {
+    cursor: pointer;
+    color: blue;
+}

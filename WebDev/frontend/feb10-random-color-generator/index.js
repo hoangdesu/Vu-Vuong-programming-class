@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
 const generateBtn = document.querySelector('#generate-btn');
-const colorCode = document.querySelector('#color-code');
+const rgbText = document.querySelector('#color-code');
 
 
 const hexBtn = document.querySelector('#hex-btn');
@@ -43,9 +43,39 @@ function convertDecToHex(r, g, b) {
 
 // ff = 15*16 + 15 = 255
 // bc = 11*16^1 + 12*16^0 = 176 + 12 = 176 + 12 = 188
-function convertHexToDec(hexColorStr) {
 
+// hex  1 d 3 a
+//               <-
+// 16^  3 2 1 0
+
+// ->
+// 10*16^0 + 3*16^1 + 13*16^2 + 1*16^3 = 7482
+
+function convertHexToDec(hexColorStr) {
+    console.log(hexColorStr);
+    // let r, g, b; // undefined
+    // console.log(r);
+
+    // #c565c9
+
+    // let rgb = 'rgb(';
+    const rgb = [];
+    let startIndex = 1;
+    for (let i = 0; i < 3; i++) {
+        let color = hexColorStr.substring(startIndex, startIndex + 2);
+        console.log(color);
+
+        // convert
+        let dec = hexChars.indexOf(color[0]) * 16 + hexChars.indexOf(color[1]);
+        // console.log(dec);
+        rgb.push(dec);
+
+        startIndex += 2;
+    }
+
+    return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
+
 
 let rgbColor = 'rgb(255, 255, 255)';
 generateBtn.addEventListener('click', () => {
@@ -56,13 +86,13 @@ generateBtn.addEventListener('click', () => {
     rgbColor = `rgb(${r}, ${g}, ${b})`;
     // const newColor = '#aa99ff';
     body.style.backgroundColor = rgbColor;
-    colorCode.textContent = rgbColor;
+    rgbText.textContent = rgbColor;
 
     hexText.textContent = convertDecToHex(r, g, b);
 });
 
 // binding using onclick ATTRIBUTE
-colorCode.onclick = () => {
+rgbText.onclick = () => {
     console.log(rgbColor);
 
     // Navigator API: pretty new
@@ -101,6 +131,7 @@ hexBtn.addEventListener('click', () => {
     }
 
     // console.log(hexColor);
+    rgbText.textContent = convertHexToDec(hexColor);
 
     body.style.backgroundColor = hexColor;
     hexText.textContent = hexColor;

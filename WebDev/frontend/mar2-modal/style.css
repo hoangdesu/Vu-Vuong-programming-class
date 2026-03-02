@@ -1,0 +1,32 @@
+/* CSS reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#modal-overlay {
+    /* border: 5px solid red; */
+
+    /* remove element from normal HTML flow */
+    position: absolute;
+
+    /* spacing from the corner */
+    top: 0;  /* go down */
+    left: 0; /* go right */
+
+    /* relative units vs absolute units */
+    width: 100vw;   /* view width */
+    height: 100vh;  /* view height */
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(105, 100, 101, 0.667);
+}
+
+#modal-box {
+    /* margin-top: 200px; */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+}

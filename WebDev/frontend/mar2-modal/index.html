@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- always display -->
+    <div>
+        <h1>Modal</h1>
+        <button id="btn-open-modal">Open modal</button>
+    </div>
+
+    <!-- only show when modal opens. hidden by default -->
+    <div id="modal-overlay">
+        <div id="modal-box">
+            <h1>Modal content</h1>
+            <p>This is inside the modal</p>
+            <img src="https://res.cloudinary.com/unix-center/image/upload/c_limit,dpr_3.0,f_auto,fl_progressive,g_center,h_580,q_75,w_906/fl7hxq9rczontkgsvvw0.jpg" alt="" width="300">
+            <div>
+                <button id="btn-close-modal">Close</button>
+                <button>OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>

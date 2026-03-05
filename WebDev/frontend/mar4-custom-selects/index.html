@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom selects</title>
+    <link rel="stylesheet" href="selects.css">
+</head>
+<body>
+    <h1>Built-in radio selects</h1>
+
+    <!-- Built-in radios -->
+    <!-- must use the same "name" attribute -->
+
+    <form action="">
+        <div>
+            <input type="radio" name="drink" id="drk-cafe" value="cafe">
+            <label for="drk-cafe">Cafe</label>
+            <!-- meaningful -->
+        </div>
+
+        <div>
+            <input type="radio" name="drink" id="drk-tea" value="tea">
+            <label for="drk-tea">Tea</label>
+        </div>
+
+        <div>
+            <input type="radio" name="drink" id="drk-matcha" value="matcha" checked>
+            <label for="drk-matcha">Matcha</label>
+        </div>
+
+        <!-- default inside a form: type=submit -->
+        <button type="button">Submit</button>
+    </form>
+
+    <!-- missing value: http://127.0.0.1:5500/mar4-custom-selects/?drink=on -->
+    <!-- URL: http://127.0.0.1:5500/mar4-custom-selects/index.html?drink=tea -->
+    <!-- Query string: ?drink=tea -->
+
+    <div>
+        <h1>Select price</h1>
+
+        <div>
+            <button class="btn-price hehe haha">$</button>
+            <button class="btn-price">$$</button>
+            <button class="btn-price">$$$</button>
+        </div>
+
+        <button>Clear</button>
+        <button class="btn-1">Submit</button>
+        <!-- when click on submit, show the price range selected -->
+    </div>
+
+    <script src="selects.js"></script>
+</body>
+</html>

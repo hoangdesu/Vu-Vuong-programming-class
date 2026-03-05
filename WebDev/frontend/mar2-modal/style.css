@@ -22,6 +22,8 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgba(105, 100, 101, 0.667);
+
+    transition: 1s all ease;
 }
 
 #modal-box {

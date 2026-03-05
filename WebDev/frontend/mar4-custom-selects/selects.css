@@ -1,0 +1,16 @@
+.btn-1 {
+    background-color: red;
+}
+
+.btn-price {
+    color: white;
+    padding: 10px;
+    color: red;
+}
+
+
+.selected {
+    background-color: yellow;
+    color: black;
+}
+

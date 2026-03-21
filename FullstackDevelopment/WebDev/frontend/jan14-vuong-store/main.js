@@ -86,6 +86,12 @@ for (const product of products) {
     // modify container's original html
     productsContainer.innerHTML += productCardHtml;
 
+    // const addToCartBtn = document.createElement('button');
+    // addToCartBtn.text = 'Add to cart 🛒';
+    // productCardHtml.append(addToCartBtn);
+
+    // productCardHtml.innerHTML += '</div>'
+
     // 'single-quote ${}'
     // "double-quote ${}"
     // `string-template literal ${}`

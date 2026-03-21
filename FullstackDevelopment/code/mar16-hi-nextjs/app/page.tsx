@@ -49,6 +49,10 @@ export default function Home() {
       <button>Decrease</button>
       <button onClick={increase}>Increase</button>
       
+
+      {/* Home: parent
+        -> VideoComponent: child component */}
+
       <div>
         {/* passing props to a component */}
         <VideoComponent title="Javascript" views={100} />

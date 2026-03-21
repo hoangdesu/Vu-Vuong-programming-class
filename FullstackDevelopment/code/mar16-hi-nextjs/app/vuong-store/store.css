@@ -1,0 +1,32 @@
+#products-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    /* nested selectors: available in 2025 */
+
+    border: 1px solid pink;
+    border-radius: 12px;
+    overflow: hidden;
+    /* padding: 20px; */
+
+    h2, p {
+        padding: 8px 20px; /* vertical horizontal */
+    }
+
+    img {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 20px;
+        /* border-radius: 12px; */
+    }
+
+}

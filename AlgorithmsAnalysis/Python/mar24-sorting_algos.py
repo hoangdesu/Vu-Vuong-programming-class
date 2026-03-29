@@ -1,3 +1,4 @@
+# O(n^2)
 def selection_sort(nums):
     comps = 0
     for i in range(len(nums) - 1):
@@ -21,3 +22,5 @@ def selection_sort(nums):
 nums = [15, 21, 1, 25, 12, 6, 8, 3, 5, 19, 10, 18]
 selection_sort(nums)
 print(nums)
+
+

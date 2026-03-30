@@ -10,6 +10,10 @@ import {
   Box,
 } from '@chakra-ui/react';
 
+// const VenueCard = (props) => {
+//   return (...)
+// }
+
 export default function VenueCard(props) {
   // object destructure
   const { venue } = props;
@@ -21,46 +25,18 @@ export default function VenueCard(props) {
 
   return (
     <div className='venue-card'>
-      <img src={venue.imgSrc} alt={venue.name} />
-      <h1>{venue.name}</h1>
+      <img src={venue.imgSrc} alt={venue.name} draggable="false" />
 
-      <div>
-        <Accordion>
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box as='span' flex='1' textAlign='left'>
-                  Section 1 title
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
+      {/* <Image 
+        src={venue.imgSrc} 
+        alt={venue.name} 
+        draggable="false" 
+        width={300} 
+        height={300} 
+      /> */}
 
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box as='span' flex='1' textAlign='left'>
-                  Section 2 title
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      </div>
+      <h2>{venue.name}</h2>
+      
     </div>
   );
 }

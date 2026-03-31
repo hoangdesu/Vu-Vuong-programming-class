@@ -9,6 +9,7 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 // const VenueCard = (props) => {
 //   return (...)
@@ -17,11 +18,46 @@ import {
 export default function VenueCard(props) {
   // object destructure
   const { venue } = props;
+  const [selected, setSelected] = useState(false);
+  const [randNum, setRandNum] = useState(null);
 
   // props.venue.name
   // props.venue.img
 
   // => venue.name
+
+  // // runs AFTER every single render of the component -> clean up
+  // useEffect(() => {
+  //   console.log('this useeffect runs after every single render of the component.');
+  // });
+
+  // console.log('component venuecard is re-rendered');
+
+  // // empty dependency array: run the effect's code ONLY once after the initial render of the component
+  // useEffect(() => {
+  //   console.log(`[${venue.name}] fetching data from database...`)
+    
+  // }, []);
+
+
+  // // run once after the initial render AND when state in dep array changes
+  // useEffect(() => {
+  //   console.log(venue.name, 'finished updating the selected state:', selected);
+  // }, [selected]);
+
+
+  // useEffect(callback function, dependency array)
+
+  // useEffect(() => {
+    
+  //   setTimeout(() => {
+  //     setRandNum(Math.random());
+  //   }, 2000 + Math.random() * 5000);
+
+  // }, []);
+
+  
+  
 
   return (
     <div className='venue-card'>
@@ -36,6 +72,14 @@ export default function VenueCard(props) {
       /> */}
 
       <h2>{venue.name}</h2>
+
+      <button onClick={() => {
+        setSelected(!selected)
+        console.log('selected inside onclick (DELAYED)', selected);
+        
+      }}>{selected ? 'Selected' : 'NOT selected'}</button>
+
+      <p>{!randNum ? 'Loading...' : randNum}</p>
       
     </div>
   );

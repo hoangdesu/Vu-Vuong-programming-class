@@ -4,7 +4,8 @@ import Image from 'next/image';
 import VenueCard from './VenueCard';
 
 import './home.css';
-import { useEffect, useState } from 'react';
+import { use, useContext, useEffect, useState } from 'react';
+import { AppContext } from './ContextProvider';
 
 export default function HomePage() {
   // const venue1 = {
@@ -20,6 +21,8 @@ export default function HomePage() {
   // };
 
   // console.log('component HomePage renders');
+
+  const appContext = use(AppContext);
   
   const [venues, setVenues] = useState([]);
 
@@ -40,13 +43,25 @@ export default function HomePage() {
 
   // [{name: "Venue 2",imgSrc: "https://res.cloudinary.com/hoangdesu/image/upload/v1701769099/YelpCamp/apflkxajyzdt4sxjfajf.jpg"}]
 
+  //   const [currentUser, setCurrentUser] = useState(null);
+
+  // useEffect(() => {
+  //   const lsUser = localStorage.getItem('currentUser');
+  //   if (lsUser) {
+  //     setCurrentUser(JSON.parse(lsUser));
+  //   }
+  // }, []);
+
+
 
   return (
     <div>
       <div>
+        <h1>Home</h1>
+        <p>Current user: {appContext.currentUser?.username}</p>
         {/* <VenueCard 
             name={name} 
-            img={} 
+            img={}
             /> */}
 
         {/* <VenueCard venue={venue1} />

@@ -10,12 +10,16 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { useEffect, useEffectEvent, useState } from 'react';
+import Link from 'next/link';
+import Venue from './types/Venue';
 
 // const VenueCard = (props) => {
 //   return (...)
 // }
 
-export default function VenueCard(props) {
+export default function VenueCard(props: {
+  venue: Venue
+}) {
   // object destructure
   const { venue } = props;
   const [selected, setSelected] = useState(false);
@@ -56,11 +60,9 @@ export default function VenueCard(props) {
 
   // }, []);
 
-  
-  
 
   return (
-    <div className='venue-card'>
+    <Link href={`/venues/${venue.id}`} className='venue-card'>
       <img src={venue.imgSrc} alt={venue.name} draggable="false" />
 
       {/* <Image 
@@ -81,6 +83,6 @@ export default function VenueCard(props) {
 
       <p>{!randNum ? 'Loading...' : randNum}</p>
       
-    </div>
+    </Link>
   );
 }

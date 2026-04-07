@@ -7,6 +7,7 @@ import {
   FormHelperText,
   Input,
   Button,
+  useToast,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
@@ -16,12 +17,22 @@ export default function SignUpPage() {
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-
+    
     // console.log('submitting form...');
 
     const formData = new FormData(evt.currentTarget);
+
+    // console.log(Array.from(formData.entries()).length);
+    
+    
+    // if ( < 3) {
+    //   alert('Missing data');
+    //   return;
+    // }
+
     const newUser = Object.fromEntries(formData.entries());
     console.log();
+
 
     // later with a real db
     // db.users.insert(newUser)
@@ -44,9 +55,10 @@ export default function SignUpPage() {
       router.push('/signin');
     } catch (e) {
       console.error(e);
+      
     }
   };
-
+  
   return (
     <div className='px-32'>
       <h1>Sign up</h1>

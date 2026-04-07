@@ -1,7 +1,9 @@
 'use client';
 
 import { useContext, useEffect, useState } from 'react';
-import { AppContext } from './ContextProvider';
+import { AppContext } from './store/ContextProvider';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   //   const [currentUser, setCurrentUser] = useState(null);
@@ -13,23 +15,40 @@ export default function Header() {
   //     }
   //   }, []);
 
-  const { currentUser } = useContext(AppContext);
+  const router = useRouter();
+  const { currentUser, setCurrentUser } = useContext(AppContext);
+
+  const handleSignOut = () => {
+    localStorage.removeItem('vv_currentUser');
+    setCurrentUser(null);
+    // router.refresh();
+  };
 
   return (
     <div className='w-full bg-red-500 py-4 px-32 flex justify-between'>
       <div>
-        <h1>Logo</h1>
+        {/* <h1>Logo</h1> */}
+        <Link href="/">Home</Link>
+
       </div>
 
       {currentUser ? (
         <div>
           <p>{currentUser.username}</p>
-          <button>Log out</button>
+          <button
+          onClick={handleSignOut}
+          >
+            Log out
+          </button>
         </div>
       ) : (
         <div>
-          <button>Sign up</button>
-          <button>Sign in</button>
+          {/* <a href='/signup'>Sign up</a> */}
+          {/* <Link href="/signup">Sign up</Link> */}
+          {/* <button>Sign in</button> */}
+
+          <Link href="/signup">Sign up</Link>
+          <Link href="/signin">Sign in</Link>
         </div>
       )}
     </div>

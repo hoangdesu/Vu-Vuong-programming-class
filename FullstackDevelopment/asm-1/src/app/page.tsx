@@ -5,7 +5,12 @@ import VenueCard from './VenueCard';
 
 import './home.css';
 import { use, useContext, useEffect, useState } from 'react';
-import { AppContext } from './ContextProvider';
+import { AppContext } from './store/ContextProvider';
+import Venue from './types/Venue';
+
+// type Venue = {
+
+// }
 
 export default function HomePage() {
   // const venue1 = {
@@ -22,19 +27,27 @@ export default function HomePage() {
 
   // console.log('component HomePage renders');
 
-  const appContext = use(AppContext);
+  // const appContext = use(AppContext);
+  const { currentUser } = use(AppContext);
+
+  // {
+  //   "id": 2,
+  //   "name": "Ocean Breeze",
+  //   "imgSrc": "https://picsum.photos/id/1015/600/400"
+  // }
   
-  const [venues, setVenues] = useState([]);
+  const [venues, setVenues] = useState<Venue[]>([]);
 
   // fetch venue data from local storage
   useEffect(() => {
     
-    const localStorageVenues = localStorage.getItem('venues');
+    const localStorageVenues = localStorage.getItem('vv_venues') || '[]';
 
     if (localStorageVenues) {
-      console.log('localStorageVenues', localStorageVenues);
       setVenues(JSON.parse(localStorageVenues));
-      console.log(localStorageVenues[0]);
+
+      // console.log('localStorageVenues', localStorageVenues);
+      // console.log(localStorageVenues[0]);
     } else {
       console.log('localStorageVenues is null');
     }
@@ -58,7 +71,9 @@ export default function HomePage() {
     <div>
       <div>
         <h1>Home</h1>
-        <p>Current user: {appContext.currentUser?.username}</p>
+        {/* <p>Current user: {appContext.currentUser?.username}</p> */}
+        <p>Current user: {currentUser?.usernam || 'Not logged in'}</p>
+
         {/* <VenueCard 
             name={name} 
             img={}
@@ -75,7 +90,7 @@ export default function HomePage() {
         <h1>Venues</h1>
         <div id='venues-container'>
           {venues.map((venue) => (
-            <VenueCard key={venue.name} venue={venue} />
+            <VenueCard key={venue.id} venue={venue} />
           ))}
         </div>
       </div>

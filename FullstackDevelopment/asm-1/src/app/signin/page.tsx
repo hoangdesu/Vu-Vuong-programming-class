@@ -25,11 +25,33 @@ export default function SignInPage() {
     evt.preventDefault();
 
     const formData = new FormData(evt.currentTarget);
-    const loginUser = Object.fromEntries(formData.entries());
-    localStorage.setItem('vv_currentUser', JSON.stringify(loginUser));
-    setCurrentUser(loginUser);
-    
-    router.push('/');
+
+    const lsUsers = localStorage.getItem('vv_users') || '[]';
+    try {
+      const users = JSON.parse(lsUsers);
+
+      const loginUser = Object.fromEntries(formData.entries());
+
+      // check if user is in db
+      const foundUser = users.find((usr) => usr.email === loginUser.email);
+      // console.log(foundUser);
+      if (!foundUser) throw new Error('Login failed');
+
+      if (loginUser.password !== foundUser.password) throw new Error('Login failed');
+      
+      const currUsr = {
+        id: foundUser.id,
+        name: foundUser.name,
+        email: foundUser.email
+      };
+
+      localStorage.setItem('vv_currentUser', JSON.stringify(currUsr));
+      setCurrentUser(currUsr);
+      router.push('/');
+    } catch(e) {
+      console.error(e)
+    }
+
   };
 
   return (
@@ -44,8 +66,8 @@ export default function SignInPage() {
 
       <form onSubmit={onLogin}>
         <FormControl>
-          <FormLabel>Username</FormLabel>
-          <Input type='text' name='username' />
+          <FormLabel>Email</FormLabel>
+          <Input type='text' name='email' />
         </FormControl>
         <FormControl>
           <FormLabel>Password</FormLabel>

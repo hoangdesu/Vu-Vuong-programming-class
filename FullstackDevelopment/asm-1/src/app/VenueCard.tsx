@@ -75,13 +75,13 @@ export default function VenueCard(props: {
 
       <h2>{venue.name}</h2>
 
-      <button onClick={() => {
+      {/* <button onClick={() => {
         setSelected(!selected)
         console.log('selected inside onclick (DELAYED)', selected);
         
-      }}>{selected ? 'Selected' : 'NOT selected'}</button>
+      }}>{selected ? 'Selected' : 'NOT selected'}</button> */}
 
-      <p>{!randNum ? 'Loading...' : randNum}</p>
+      {/* <p>{!randNum ? 'Loading...' : randNum}</p> */}
       
     </Link>
   );

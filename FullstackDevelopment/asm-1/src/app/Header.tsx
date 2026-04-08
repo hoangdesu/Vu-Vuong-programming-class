@@ -34,7 +34,8 @@ export default function Header() {
 
       {currentUser ? (
         <div>
-          <p>{currentUser.username}</p>
+          {/* <p>{currentUser.name}</p> */}
+          <Link href={`/users/${currentUser.id}`}>{currentUser.name}</Link >
           <button
           onClick={handleSignOut}
           >

@@ -31,8 +31,7 @@ export default function SignUpPage() {
     // }
 
     const newUser = Object.fromEntries(formData.entries());
-    console.log();
-
+    newUser.id = crypto.randomUUID();
 
     // later with a real db
     // db.users.insert(newUser)
@@ -43,9 +42,11 @@ export default function SignUpPage() {
       const users = JSON.parse(lsUsers);
 
       const duplicatedUser = users.find(
-        (user) => user.username === newUser.username,
+        (user) => user.email === newUser.email,
       );
       // console.log(duplicatedUser);
+
+      users.push({ name, email, password, id: crypto.randomUUID() })
 
       if (duplicatedUser) throw new Error('Duplicated user');
 
@@ -65,8 +66,8 @@ export default function SignUpPage() {
 
       <form onSubmit={onFormSubmit}>
         <FormControl>
-          <FormLabel>Username</FormLabel>
-          <Input type='text' name='username' />
+          <FormLabel>Name</FormLabel>
+          <Input type='text' name='name' />
           {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
         </FormControl>
         <FormControl>

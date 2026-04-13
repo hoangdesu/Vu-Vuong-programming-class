@@ -1,6 +1,8 @@
 'use client';
 
+import { AppContext } from '@/app/store/ContextProvider';
 import Venue from '@/app/types/Venue';
+import { Button } from '@chakra-ui/react';
 import { notFound } from 'next/navigation';
 import { use, useEffect, useState } from 'react';
 
@@ -11,9 +13,12 @@ export default function VenueDetailPage({
 }) {
   const { id } = use(params); // path param
 
+  const { currentUser } = use(AppContext);
+
   //   console.log(id, typeof id);
 
   const [venue, setVenue] = useState<Venue | null>(null);
+  const [booked, setBooked] = useState(false);
 
   useEffect(() => {
     const lsVenues = localStorage.getItem('vv_venues') || '[]';
@@ -34,6 +39,29 @@ export default function VenueDetailPage({
     }
   }, []);
 
+  const addVenueToBookings = () => {
+    const lsBookings = localStorage.getItem('vv_bookings') || '[]';
+
+    try {
+      const bookings = JSON.parse(lsBookings);
+
+      const newBooking = {
+        id: crypto.randomUUID(),
+        hirer: currentUser,
+        venue: venue,
+        // TODO: replace later
+        guests: 1,
+        book_datetime: new Date().toISOString(),
+        duration_hrs: 1,
+      };
+
+      bookings.push(newBooking);
+
+      localStorage.setItem('vv_bookings', JSON.stringify(bookings));
+      setBooked(true);
+    } catch (err) {}
+  };
+
   //   Loading UI
   if (!venue) {
     return (
@@ -45,11 +73,13 @@ export default function VenueDetailPage({
 
   return (
     <div className='px-32 mt-16'>
-
-      <img src={venue.imgSrc} alt="" />
+      <img src={venue.imgSrc} alt='' />
       <p>ID: {id}</p>
       <h1>{venue.name}</h1>
 
+      <Button onClick={addVenueToBookings} disabled={booked}>
+        {!booked ? 'Book now!' : 'This venue has been booked'}
+      </Button>
     </div>
   );
 }

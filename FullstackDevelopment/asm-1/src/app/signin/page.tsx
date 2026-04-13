@@ -39,14 +39,17 @@ export default function SignInPage() {
 
       if (loginUser.password !== foundUser.password) throw new Error('Login failed');
       
-      const currUsr = {
-        id: foundUser.id,
-        name: foundUser.name,
-        email: foundUser.email
-      };
+      // const currUsr = {
+      //   id: foundUser.id,
+      //   name: foundUser.name,
+      //   email: foundUser.email
+      // };
 
-      localStorage.setItem('vv_currentUser', JSON.stringify(currUsr));
-      setCurrentUser(currUsr);
+      // remove password, keep everything the same in currUser
+      const { password, ...currUser } = foundUser;
+
+      localStorage.setItem('vv_currentUser', JSON.stringify(currUser));
+      setCurrentUser(currUser);
       router.push('/');
     } catch(e) {
       console.error(e)

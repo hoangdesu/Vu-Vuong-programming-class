@@ -8,6 +8,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  Button,
 } from '@chakra-ui/react';
 import { useEffect, useEffectEvent, useState } from 'react';
 import Link from 'next/link';

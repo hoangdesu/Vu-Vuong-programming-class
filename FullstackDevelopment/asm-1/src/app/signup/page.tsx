@@ -11,20 +11,18 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
-
 export default function SignUpPage() {
   const router = useRouter();
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-    
+
     // console.log('submitting form...');
 
     const formData = new FormData(evt.currentTarget);
 
     // console.log(Array.from(formData.entries()).length);
-    
-    
+
     // if ( < 3) {
     //   alert('Missing data');
     //   return;
@@ -41,25 +39,29 @@ export default function SignUpPage() {
     try {
       const users = JSON.parse(lsUsers);
 
-      const duplicatedUser = users.find(
-        (user) => user.email === newUser.email,
-      );
+      // if users db is empty
+      if (users.length === 0) {
+        users.push(newUser);
+        localStorage.setItem('vv_users', JSON.stringify(users));
+        router.push('/signin');
+        return;
+      }
+
+      const duplicatedUser = users.find((user) => user.email === newUser.email);
+
       // console.log(duplicatedUser);
-
-      users.push({ name, email, password, id: crypto.randomUUID() })
-
       if (duplicatedUser) throw new Error('Duplicated user');
 
+      // users.push({ name, email, password, id: crypto.randomUUID() })
       users.push(newUser);
       localStorage.setItem('vv_users', JSON.stringify(users));
 
       router.push('/signin');
     } catch (e) {
       console.error(e);
-      
     }
   };
-  
+
   return (
     <div className='px-32'>
       <h1>Sign up</h1>

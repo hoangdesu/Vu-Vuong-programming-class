@@ -1,7 +1,7 @@
 'use client';
 
 import { AppContext } from '@/app/store/ContextProvider';
-import { use, useId } from 'react';
+import { use, useEffect, useId, useState } from 'react';
 
 import {
   FormControl,
@@ -12,6 +12,7 @@ import {
   Button,
   useToast,
 } from '@chakra-ui/react';
+import VenueCard from '@/app/VenueCard';
 
 export default function UserPage({
   params,
@@ -22,6 +23,7 @@ export default function UserPage({
 
   const toast = useToast();
   const { currentUser, setCurrentUser } = use(AppContext);
+  const [myBookings, setMyBookings] = useState<null | []>(null);
 
   const onSave = (evt) => {
     evt.preventDefault();
@@ -57,11 +59,28 @@ export default function UserPage({
         duration: 2000,
         isClosable: true,
       });
-
     } catch (e) {
       console.error(e);
     }
   };
+
+  // extract only MY bookings from ALL bookings
+  // must wait for currentUser to finish updating
+  useEffect(() => {
+    console.log('getting bookings');
+    
+    const lsBookings = localStorage.getItem('vv_bookings') || '[]';
+    try {
+      const bookings = JSON.parse(lsBookings);
+
+      const myBookings = bookings.filter(
+        (bk) => bk.hirer.id === currentUser.id,
+      );
+
+      console.log('my bookings:', myBookings);
+      setMyBookings(myBookings);
+    } catch (e) {}
+  }, [currentUser]);
 
   if (!currentUser) {
     return <div>Loading...</div>;
@@ -98,6 +117,15 @@ export default function UserPage({
           Save
         </Button>
       </form>
+
+      <section>
+        <h1>My Bookings</h1>
+        <div>
+          {myBookings?.map((booking) => (
+            <VenueCard key={booking.venue.id} venue={booking.venue} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

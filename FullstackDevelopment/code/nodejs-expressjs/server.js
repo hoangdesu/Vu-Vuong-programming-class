@@ -21,7 +21,11 @@ app.get('/haha', (req, res) => {
 const menu = ['pho', 'hu tiu', 'com tam', 'xiu mai', 'dim sum'];
 
 app.get('/menu', (req, res) => {
-    const foodList = menu.map(food => `<li>${food}</li>`);
+    const foodList = menu.map((food, index) => `
+        <li>
+            <a href="${index+1}">${food}</a>
+        </li>`
+    );
 
     // server-side rendering
     const html = `
@@ -36,6 +40,11 @@ app.get('/menu', (req, res) => {
 
     // res.send(menu);
     res.send(html);
+    // res.json(menu);
+
+    // res.send(menu.join()); // flexible
+
+    // res.json(menu.join());
 });
 
 
@@ -51,11 +60,40 @@ app.get('/menu/:foodNum', (req, res) => {
         return res.send('Invalid food number');
     }
     
-    res.send(food);
+    return res.send(food);
     // res.html
     // res.json
 });
 
+
+// Query string
+// https://www.youtube.com/results?search_query=nodejs
+
+// https://youtu.be/ENrzD9HAZK4?
+//     si=DBrzrn8l-85gljaB & 
+//     t=263
+
+app.get('/hello', (request, response) => {
+    // response.send(request.query);
+
+    const { country, age, name } = request.query;
+
+    response.send(`Hi my name is ${name}, I am ${age} and I am living in ${country}`);
+});
+
+
+// Search
+app.get('/search-food', (req, res) => {
+    const { foodname } = req.query;
+
+    if (!foodname) return res.send('Missing food name');
+
+    if (menu.indexOf(foodname) === -1) {
+        return res.send(`Sorry we don't have ${foodname}... :(`);
+    }
+
+    return res.send(`We have ${foodname} :D`);
+});
 
 
 // open the server

@@ -4,8 +4,14 @@ const app = express()
 const port = 3456;
 
 // CORS middleware
-app.use(cors());
+// app.use(cors()); // allow all
+
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174']
+}));
+
 app.use(express.urlencoded({ extended: true })); // form data
+app.use(express.json())
 
 const games = ['hades', 'gi', 'pragmata', 'dota 2'];
 
@@ -34,6 +40,7 @@ app.get('/games', (req, res) => {
 app.post('/games/new', (req, res) => {
     // const body = req.body;
     
+    // rename object after destruct
     const { newgame: newGame } = req.body;
 
     games.push(newGame);
@@ -42,7 +49,6 @@ app.post('/games/new', (req, res) => {
 
     // auto client refresh
     res.redirect(req.get('referer'));
-    
 });
 
 
@@ -51,6 +57,39 @@ app.post('/games/new', (req, res) => {
 // => /games/1/genshinimpact
 // e.g. /games/:oldGame/:newGame (replace by value)
 // => /games/gi/genshinimpact
+
+
+// route handler: app.post(ENDPOINT, controller)
+// route handler: app.get(ENDPOINT, controller)
+
+
+// DELETE /games
+// Params:
+//     1. req.body (delete by name): post body JSON => OK
+//     2. query string (delete by int [num|index|id]): /games?name=forza horizon => X, /games?num=3 (OK)
+//     3. path param (delete by int [num|index|id]): /games/forza horizon (NO), /games/4 (OK)
+
+app.delete('/games/:index', (req, res) => {
+    // console.log(req.params);
+    const { index } = req.params;
+
+    const i = parseInt(index);
+
+    console.log('deleting...', games[i], ', index = ', i);
+    games.splice(i, 1);
+
+    res.send('OK');
+});
+
+
+app.put('/games', (req, res) => {
+    console.log(req.body);
+
+    const { index, newGame } = req.body;
+    games[index] = newGame;
+
+    res.send('OK!');
+});
 
 
 // open the server

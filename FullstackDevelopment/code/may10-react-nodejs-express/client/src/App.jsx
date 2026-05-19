@@ -59,6 +59,8 @@ function App() {
   const onNewGameSaved = (index) => {
     console.log('save...', index, newGame);
 
+    if (!newGame) return;
+
     fetch('http://localhost:3456/games', {
       method: 'put',
       headers: {
@@ -76,9 +78,12 @@ function App() {
     })
       .then((res) => {
         console.log(res);
+
         if (res.ok) {
           window.location.reload();
         }
+
+        // res.json().then(data => console.log(data))
       })
       .catch((err) => {});
   };
@@ -111,32 +116,37 @@ function App() {
             //   onWork={makeSushi()} */}
             // </li>
 
-            <tr key={game}>
-              <td>{index + 1}</td>
+            // <TableRow game index />
+            <tr key={game.id}>
+              <td>{game.id}</td>
               <td>
                 <a
                   href={`https://www.google.com/search?q=${game}`}
                   target='_blank'
                 >
-                  {game}
+                  {game.name}
                 </a>
               </td>
+              <td>{game.rating}</td>
               <td>
                 <button onClick={() => onDeleteButtonClicked(index)}>
                   Delete
                 </button>
               </td>
               <td>
+                {/* controlled component: 2-way binding */}
                 <input
                   type='text'
                   placeholder='New name...'
-                  onChange={(evt) => setNewGame(evt.target.value)}
                   value={newGame}
+                  onChange={(evt) => setNewGame(evt.target.value)}
                 />
               </td>
               <td>
                 <button onClick={() => onNewGameSaved(index)}>Save</button>
               </td>
+              
+              {/* => <EditForm key={key} index={index} /> */}
             </tr>
           ))}
         </tbody>

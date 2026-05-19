@@ -1,19 +1,31 @@
-const express = require('express')
-const cors = require('cors')
-const app = express()
+// require('reflect-metadata')
+// const express = require('express')
+// const cors = require('cors')
+
+import 'reflect-metadata';
+import express from 'express';
+import cors from 'cors';
+import { MyDataSource } from './dataSource.js';
+import Game from './entity/Game.js';
+
+const app = express();
 const port = 3456;
 
 // CORS middleware
 // app.use(cors()); // allow all
 
-app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174']
-}));
+// Datasource
+
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174'],
+  }),
+);
 
 app.use(express.urlencoded({ extended: true })); // form data
-app.use(express.json())
+app.use(express.json());
 
-const games = ['hades', 'gi', 'pragmata', 'dota 2'];
+// const games = ['hades', 'gi', 'pragmata', 'dota 2'];
 
 // 1. GET /games
 // display a simple HTML page:
@@ -23,10 +35,11 @@ const games = ['hades', 'gi', 'pragmata', 'dota 2'];
 //     2. link: gi
 //     3. link: pragmata
 
-app.get('/games', (req, res) => {
-    res.json(games);
+app.get('/games', async (req, res) => {
+  const gameRepo = MyDataSource.getRepository(Game);
+  const games = await gameRepo.find();
+  res.json(games);
 });
-
 
 // 2. POST /games/new
 // input: body (JSON String / form url-encoded)
@@ -36,21 +49,19 @@ app.get('/games', (req, res) => {
 // add the game "league" into the games array
 // when post successful, return status 201
 
-
 app.post('/games/new', (req, res) => {
-    // const body = req.body;
-    
-    // rename object after destruct
-    const { newgame: newGame } = req.body;
+  // const body = req.body;
 
-    games.push(newGame);
+  // rename object after destruct
+  const { newgame: newGame } = req.body;
 
-    // res.sendStatus(201);
+  games.push(newGame);
 
-    // auto client refresh
-    res.redirect(req.get('referer'));
+  // res.sendStatus(201);
+
+  // auto client refresh
+  res.redirect(req.get('referer'));
 });
-
 
 // 3. PUT /games (later)
 // e.g. /games/:index/:newGame (replace by index)
@@ -58,10 +69,8 @@ app.post('/games/new', (req, res) => {
 // e.g. /games/:oldGame/:newGame (replace by value)
 // => /games/gi/genshinimpact
 
-
 // route handler: app.post(ENDPOINT, controller)
 // route handler: app.get(ENDPOINT, controller)
-
 
 // DELETE /games
 // Params:
@@ -70,30 +79,29 @@ app.post('/games/new', (req, res) => {
 //     3. path param (delete by int [num|index|id]): /games/forza horizon (NO), /games/4 (OK)
 
 app.delete('/games/:index', (req, res) => {
-    // console.log(req.params);
-    const { index } = req.params;
+  // console.log(req.params);
+  const { index } = req.params;
 
-    const i = parseInt(index);
+  const i = parseInt(index);
 
-    console.log('deleting...', games[i], ', index = ', i);
-    games.splice(i, 1);
+  console.log('deleting...', games[i], ', index = ', i);
+  games.splice(i, 1);
 
-    res.send('OK');
+  res.send('OK');
 });
-
 
 app.put('/games', (req, res) => {
-    console.log(req.body);
+  console.log(req.body);
 
-    const { index, newGame } = req.body;
-    games[index] = newGame;
+  const { index, newGame } = req.body;
+  games[index] = newGame; // in-place replacement
 
-    res.send('OK!');
+  res.send('OK'); // status === 200
 });
 
-
-// open the server
-app.listen(port, () => {
-  console.log(`App running at: http://localhost:${port}`)
-})
-
+MyDataSource.initialize().then(() => {
+  // open the server
+  app.listen(port, () => {
+    console.log(`App running at: http://localhost:${port}`);
+  });
+});

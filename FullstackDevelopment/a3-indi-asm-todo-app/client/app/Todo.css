@@ -1,0 +1,7 @@
+.todo-title:hover {
+    cursor: pointer;
+}
+
+.todo-input {
+    min-width: 300px;
+}
